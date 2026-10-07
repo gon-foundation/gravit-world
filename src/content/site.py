@@ -286,8 +286,8 @@ special services is possible only under the remuneration regulation and without 
 
 PAGES["statutes"] = {
     "title": LABELS["statutes"],
-    "tagline": {"de": "Fassung vom 7. Oktober 2026", "fr": "Version du 7 octobre 2026",
-                "it": "Versione del 7 ottobre 2026", "en": "Version of 7 October 2026"},
+    # new version; replaces the original statutes adopted at the founding assembly of 12 Feb 2023
+    "tagline": {"de": "Neufassung", "fr": "Nouvelle version", "it": "Nuova versione", "en": "Revised version"},
     # body is generated from STATUTEN_DE (German only, authoritative)
     "body": {l: "{statutes}" for l in LANGS},
 }
