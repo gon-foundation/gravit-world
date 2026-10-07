@@ -1,0 +1,67 @@
+name: Site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "preview (gravit.world/preview/) or production (gravit.world)"
+        required: true
+        default: preview
+        type: choice
+        options: [preview, production]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Preview build
+        run: python build.py
+      - name: Production readiness (fails while placeholder texts remain)
+        continue-on-error: true
+        run: python build.py --production
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target == 'production' && 'production' || 'preview' }}
+    env:
+      HOST: ${{ secrets.SFTP_HOST }}
+      USER: ${{ secrets.SFTP_USER }}
+      KEY: ${{ secrets.SFTP_KEY }}
+      REMOTE_DIR: ${{ secrets.SFTP_REMOTE_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build
+        run: |
+          if [ "${{ inputs.target }}" = "production" ]; then
+            python build.py --production
+          else
+            python build.py --base /preview
+          fi
+      - name: Upload over SFTP
+        if: env.HOST != ''
+        run: |
+          sudo apt-get install -y lftp >/dev/null
+          install -m 600 /dev/null key && printf '%s\n' "$KEY" > key
+          mkdir -p ~/.ssh && ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          TARGET="$REMOTE_DIR"
+          [ "${{ inputs.target }}" = "production" ] || TARGET="$REMOTE_DIR/preview"
+          # --delete only inside the gravit.world folder; production keeps the preview/ sub-folder
+          EXCLUDE=""; [ "${{ inputs.target }}" = "production" ] && EXCLUDE="--exclude preview/"
+          lftp -c "set sftp:connect-program 'ssh -a -x -i key'; open -u $USER, sftp://$HOST; \
+                   mkdir -p -f $TARGET; mirror --reverse --delete $EXCLUDE --verbose dist/ $TARGET/"
+          rm -f key
+      - name: Credentials missing
+        if: env.HOST == ''
+        run: echo "::notice::SFTP secrets not set yet; build checked, nothing uploaded."
