@@ -85,7 +85,13 @@ def statutes_html(lang):
     out = []
     if C.COMMON["german_prevails"][lang]:
         out.append(f'<p class="note">{C.COMMON["german_prevails"][lang]}</p>')
-    out.append(f'<p>{C.PENDING("Vor Veröffentlichung bestätigen: Statuten von der Vereinsversammlung am 7. Oktober 2026 angenommen und unterzeichnet.")}</p>')
+    intro = {
+        "de": "Neufassung, angenommen von der Vereinsversammlung am 7. Oktober 2026. Sie ersetzt die an der Gründungsversammlung vom 12. Februar 2023 angenommenen Statuten.",
+        "fr": "Nouvelle version adoptée par l'assemblée générale le 7 octobre 2026. Elle remplace les statuts adoptés lors de l'assemblée constitutive du 12 février 2023.",
+        "it": "Nuova versione adottata dall'assemblea dei soci il 7 ottobre 2026. Sostituisce lo statuto adottato nell'assemblea costitutiva del 12 febbraio 2023.",
+        "en": "Revised version adopted by the General Assembly on 7 October 2026. It replaces the statutes adopted at the founding assembly of 12 February 2023.",
+    }
+    out.append(f"<p>{intro[lang]}</p>")
     out.append('<div class="statute" lang="de">')
     for i, (title, body) in enumerate(data["articles"], 1):
         out.append(f"<h3>Artikel {i} – {html.escape(title)}</h3>")
