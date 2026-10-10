@@ -55,10 +55,9 @@ LABELS = {
 COMMON = {
     "legal_form": {"de": "Verein nach Schweizer Recht · Zürich", "fr": "Association de droit suisse · Zurich",
                    "it": "Associazione di diritto svizzero · Zurigo", "en": "Association under Swiss law · Zürich"},
-    "copyright": {"de": "© 2023–2026 Gravit Open Network Foundation · Verein nach Schweizer Recht",
-                  "fr": "© 2023–2026 Gravit Open Network Foundation · Association de droit suisse",
-                  "it": "© 2023–2026 Gravit Open Network Foundation · Associazione di diritto svizzero",
-                  "en": "© 2023–2026 Gravit Open Network Foundation · Association under Swiss law"},
+    # same line as on gravit.space, with the Foundation's founding year
+    "copyright": {l: "©2023 – 2026 Gravit Open Network Foundation · Gravit Open Network · Gravit Continuum · Gravit Quantum"
+                  for l in ["de", "fr", "it", "en"]},
     "from": {"de": "Von", "fr": "De", "it": "Dalla", "en": "From"},
     "to_world": {"de": "in die Welt", "fr": "au reste du monde", "it": "al resto del mondo", "en": "to the rest of the world"},
     "address": {"de": "Dufourstrasse 56<br>8008 Zürich<br>Schweiz", "fr": "Dufourstrasse 56<br>8008 Zurich<br>Suisse",
