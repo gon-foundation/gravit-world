@@ -159,6 +159,14 @@ def home(root, lang, draft):
       <div class="tagline">{C.COMMON["legal_form"][lang]}</div>
       <p>{C.HOME["intro"][lang]}</p>
     </section>
+    <section class="content principle" aria-labelledby="principle-title">
+      <h2 id="principle-title">{C.PRINCIPLE[lang]["title"]}</h2>
+      <p class="principle-lead">{C.PRINCIPLE[lang]["lead"]}</p>
+      <p>{C.PRINCIPLE[lang]["body"]}</p>
+      <p class="principle-truth">{C.PRINCIPLE[lang]["truth"]}</p>
+      <blockquote>{C.PRINCIPLE[lang]["quote"]}</blockquote>
+      <p>{C.PRINCIPLE[lang]["purpose"]}</p>
+    </section>
     <div class="tiles">{tiles}</div>
     <section class="content" style="margin-top:28px">
       <h2 style="margin-top:0">{C.LABELS["news"][lang]}</h2>

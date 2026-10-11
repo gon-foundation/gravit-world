@@ -593,3 +593,73 @@ combined with other data and is deleted after a short period.</p>
 <p>Under the Swiss Federal Act on Data Protection (FADP) you may request access to, correction or deletion of your data
 by writing to the address above.</p>"""},
 }
+
+# ── principle (home page, under the intro) ───────────────────────────────
+GROVER = "https://github.com/gravit-open-network-foundation/gravit-grover"
+HISTORY_KEEPER = "https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md"
+PRINCIPLE = {
+    "de": {
+        "title": "Verifikation",
+        "lead": "Seit mehr als zweihundert Jahren ist Verifikation der entscheidende Faktor des Fortschritts – "
+                "in Wissenschaft, Recht und Finanzwesen und heute in der künstlichen Intelligenz.",
+        "body": f'In Gravit Open Network trägt jedes Ereignis einen Zeitstempel. Der <a href="{HISTORY_KEEPER}">History Keeper</a> '
+                "bewahrt jedes Ereignis in einem Protokoll, das nur ergänzt und von niemandem umgeschrieben werden kann. "
+                f'Ereignisse werden nach ihren Parametern klassifiziert (<a href="{GROVER}">Gower-Ähnlichkeit</a>), konsistente '
+                f'Hypothesen werden verstärkt (nach dem Vorbild des <a href="{GROVER}">Grover-Algorithmus</a>), und durch die '
+                "Konvergenz unabhängiger Belege wird als Wahrheit festgestellt, was der Verifikation standhält. Wie Gödel gezeigt hat, "
+                "kann kein hinreichend mächtiges formales System jede in ihm formulierbare Wahrheit beweisen – deshalb wird Wahrheit "
+                "nie einfach erklärt, sondern durch Verifikation fortlaufend erhalten.",
+        "truth": "Jeder hat seine eigene Sicht der Dinge. Die Wahrheit ist eine.",
+        "quote": "Ein Symbol lässt sich leicht auf Hochglanz polieren. Geschichte lässt sich nicht auslöschen.",
+        "purpose": "Unser Ziel ist es, gemeinsam mit unseren Mitstreitern bleibende Werte für künftige Generationen zu schaffen. "
+                   "Weil wir es erklären, sind wir verpflichtet, es zu erfüllen.",
+    },
+    "fr": {
+        "title": "Vérification",
+        "lead": "Depuis plus de deux cents ans, la vérification est le facteur décisif du progrès – "
+                "dans la science, le droit, la finance et aujourd'hui l'intelligence artificielle.",
+        "body": f'Dans Gravit Open Network, chaque événement porte un horodatage. Le <a href="{HISTORY_KEEPER}">History Keeper</a> '
+                "conserve chaque événement dans un registre que l'on peut seulement compléter et que personne ne peut réécrire. "
+                f'Les événements sont classés selon leurs paramètres (<a href="{GROVER}">similarité de Gower</a>), les hypothèses '
+                f'cohérentes sont amplifiées (sur le modèle de l\'<a href="{GROVER}">algorithme de Grover</a>) et, par la convergence '
+                "de preuves indépendantes, ce qui résiste à la vérification est établi comme vérité. Comme l'a montré Gödel, aucun "
+                "système formel suffisamment puissant ne peut démontrer toutes les vérités qu'il peut exprimer : c'est pourquoi la "
+                "vérité n'est jamais simplement déclarée, mais maintenue en permanence par la vérification.",
+        "truth": "Chacun a sa propre version des faits. La vérité est une.",
+        "quote": "Un symbole se polit facilement jusqu'à briller. L'histoire ne peut pas être effacée.",
+        "purpose": "Notre but, avec nos compagnons de route, est de créer une valeur durable pour les générations futures. "
+                   "Parce que nous le déclarons, nous sommes tenus de l'accomplir.",
+    },
+    "it": {
+        "title": "Verifica",
+        "lead": "Da oltre duecento anni la verifica è il fattore decisivo del progresso – "
+                "nella scienza, nel diritto, nella finanza e oggi nell'intelligenza artificiale.",
+        "body": f'In Gravit Open Network ogni evento porta una marca temporale. Il modulo <a href="{HISTORY_KEEPER}">History Keeper</a> '
+                "conserva ogni evento in un registro che può essere solo integrato e che nessuno può riscrivere. "
+                f'Gli eventi sono classificati secondo i loro parametri (<a href="{GROVER}">similarità di Gower</a>), le ipotesi '
+                f'coerenti vengono amplificate (sul modello dell\'<a href="{GROVER}">algoritmo di Grover</a>) e, attraverso la '
+                "convergenza di prove indipendenti, ciò che resiste alla verifica viene stabilito come verità. Come ha mostrato Gödel, "
+                "nessun sistema formale sufficientemente potente può dimostrare tutte le verità che può esprimere: per questo la verità "
+                "non viene mai semplicemente dichiarata, ma mantenuta costantemente dalla verifica.",
+        "truth": "Ognuno ha la propria versione dei fatti. La verità è una sola.",
+        "quote": "Un simbolo si lucida facilmente fino a farlo brillare. La storia non si può cancellare.",
+        "purpose": "Il nostro scopo, insieme ai nostri compagni di strada, è creare un valore duraturo per le generazioni future. "
+                   "Poiché lo dichiariamo, siamo tenuti a realizzarlo.",
+    },
+    "en": {
+        "title": "Verification",
+        "lead": "For more than two hundred years, verification has been the decisive factor of progress – "
+                "in science, law, finance and now in artificial intelligence.",
+        "body": f'In Gravit Open Network every event carries a timestamp. The <a href="{HISTORY_KEEPER}">History Keeper</a> '
+                "preserves every event in an append-only record that no one can rewrite. "
+                f'Events are classified by their parameters (<a href="{GROVER}">Gower similarity</a>), consistent hypotheses are '
+                f'amplified (inspired by <a href="{GROVER}">Grover\'s algorithm</a>), and through the convergence of independent '
+                "evidence what withstands verification is established as truth. As Gödel showed, no sufficiently powerful formal "
+                "system can prove every truth it can express – which is why truth is never simply declared, but continuously "
+                "maintained by verification.",
+        "truth": "Everyone has their own version of the facts. The truth is one.",
+        "quote": "A symbol can easily be polished to a shine. History cannot be erased.",
+        "purpose": "Our purpose, together with our fellow founders, is to create lasting value for future generations. "
+                   "Because we declare it, we are bound to deliver it.",
+    },
+}
