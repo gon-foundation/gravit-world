@@ -645,3 +645,12 @@ footer .footer-links { transform: none; }
 @media (max-width: 640px) {
   header nav ul { justify-content: flex-start; gap: 4px 14px; }
 }
+
+/* home: principle block (Verification), between intro and tiles */
+.principle { margin: 0 0 28px; }
+.principle h2 { margin-top: 0; }
+.principle p, .principle blockquote { max-width: 640px; }
+.principle-lead { font-size: var(--fs-h3); color: #fff; line-height: 1.5; }
+.principle-truth { font-size: var(--fs-h3); font-weight: 700; color: #fff; text-shadow: 0 0 14px rgba(111, 208, 255, 0.35); }
+.principle blockquote { margin: 20px 0; padding-left: 18px; border-left: 2px solid var(--accent, #6fd0ff);
+  font-style: italic; color: rgba(225, 240, 255, 0.92); max-width: 68ch; }
