@@ -166,6 +166,7 @@ def home(root, lang, draft):
       <p class="principle-truth">{C.PRINCIPLE[lang]["truth"]}</p>
       <blockquote>{C.PRINCIPLE[lang]["quote"]}</blockquote>
       <p>{C.PRINCIPLE[lang]["method"]}</p>
+      <p class="principle-truth">{C.PRINCIPLE[lang]["verify"]}</p>
       <p>{C.PRINCIPLE[lang]["purpose"]}</p>
     </section>
     <div class="tiles">{tiles}</div>
