@@ -613,6 +613,7 @@ PRINCIPLE = {
         "quote": "Ein Symbol lässt sich leicht auf Hochglanz polieren. Geschichte lässt sich nicht auslöschen.",
         "method": 'Wir arbeiten so, wie wir es erklären. In unserer eigenen Forschung – in Laborumgebungen, auf der Suche nach tragfähigen Theorien und nach der Konvergenz unterschiedlicher Faktoren – wenden wir genau die Methoden an, die wir vorschlagen, und keine anderen: Jedes Ergebnis trägt seinen Zeitstempel und seine Geschichte, und jede Aussage muss durch Code reproduzierbar sein. So prüfen wir an uns selbst, was wir der Menschheit anbieten.',
         "verify": 'Jeder muss jederzeit selbst überprüfen können, was wir bewiesen, begründet und veröffentlicht haben – ohne uns zu fragen und ohne uns vertrauen zu müssen.',
+        "amodei": 'Denselben Gedanken – unabhängige Überprüfung durch Dritte – formuliert Dario Amodei, CEO von Anthropic, in <a href="https://darioamodei.com/post/we-must-pace-the-frontier"><em>We Must Pace the Frontier</em></a> (September 2026): „it seems vital to have a neutral third party who can actually see the details“ – „the public deserves to know what is going on.“',
         "purpose": "Unser Ziel ist es, gemeinsam mit unseren Mitstreitern bleibende Werte für künftige Generationen zu schaffen. "
                    "Weil wir es erklären, sind wir verpflichtet, es zu erfüllen.",
     },
@@ -631,6 +632,7 @@ PRINCIPLE = {
         "quote": "Un symbole se polit facilement jusqu'à briller. L'histoire ne peut pas être effacée.",
         "method": "Nous travaillons comme nous le déclarons. Dans notre propre recherche – dans des environnements de laboratoire, en quête de théories solides et de convergences entre différents facteurs – nous appliquons exactement les méthodes que nous proposons, et aucune autre : chaque résultat porte son horodatage et son histoire, et chaque affirmation doit être reproductible par le code. Ainsi, nous éprouvons sur nous-mêmes ce que nous proposons à l'humanité.",
         "verify": 'Chacun doit pouvoir vérifier à tout moment, par lui-même, ce que nous avons démontré, justifié et publié – sans nous le demander et sans devoir nous faire confiance.',
+        "amodei": 'La même idée – la vérification indépendante par un tiers – est formulée par Dario Amodei, CEO d\'Anthropic, dans <a href="https://darioamodei.com/post/we-must-pace-the-frontier"><em>We Must Pace the Frontier</em></a> (septembre 2026) : « it seems vital to have a neutral third party who can actually see the details » – « the public deserves to know what is going on. »',
         "purpose": "Notre but, avec nos compagnons de route, est de créer une valeur durable pour les générations futures. "
                    "Parce que nous le déclarons, nous sommes tenus de l'accomplir.",
     },
@@ -649,6 +651,7 @@ PRINCIPLE = {
         "quote": "Un simbolo si lucida facilmente fino a farlo brillare. La storia non si può cancellare.",
         "method": "Lavoriamo come dichiariamo. Nella nostra ricerca – in ambienti di laboratorio, alla ricerca di teorie solide e di convergenze tra fattori diversi – applichiamo esattamente i metodi che proponiamo, e nessun altro: ogni risultato porta la sua marca temporale e la sua storia, e ogni affermazione deve essere riproducibile dal codice. Così verifichiamo su noi stessi ciò che proponiamo all'umanità.",
         "verify": 'Chiunque deve poter verificare in qualsiasi momento, da sé, ciò che abbiamo dimostrato, motivato e pubblicato – senza chiederlo a noi e senza doverci dare fiducia.',
+        "amodei": 'La stessa idea – la verifica indipendente da parte di terzi – è formulata da Dario Amodei, CEO di Anthropic, in <a href="https://darioamodei.com/post/we-must-pace-the-frontier"><em>We Must Pace the Frontier</em></a> (settembre 2026): «it seems vital to have a neutral third party who can actually see the details» – «the public deserves to know what is going on.»',
         "purpose": "Il nostro scopo, insieme ai nostri compagni di strada, è creare un valore duraturo per le generazioni future. "
                    "Poiché lo dichiariamo, siamo tenuti a realizzarlo.",
     },
@@ -667,6 +670,7 @@ PRINCIPLE = {
         "quote": "A symbol can easily be polished to a shine. History cannot be erased.",
         "method": 'We work the way we declare. In our own research – in laboratory sandboxes, in the search for sound theories and for convergence between different factors – we use exactly the methods we propose, and no others: every result carries its timestamp and its history, and every claim must be reproducible by code. In this way we test on ourselves what we offer to humanity.',
         "verify": 'Anyone, at any time, must be able to verify independently what we have proven, justified and published – without asking us and without having to trust us.',
+        "amodei": 'The same idea – independent verification by a third party – is set out by Dario Amodei, CEO of Anthropic, in <a href="https://darioamodei.com/post/we-must-pace-the-frontier"><em>We Must Pace the Frontier</em></a> (September 2026): “it seems vital to have a neutral third party who can actually see the details” – “the public deserves to know what is going on.”',
         "purpose": "Our purpose, together with our fellow founders, is to create lasting value for future generations. "
                    "Because we declare it, we are bound to deliver it.",
     },
