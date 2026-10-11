@@ -403,12 +403,28 @@ PAGES["projects"] = {
 # plus parallel publications (e.g. the Foundation's LinkedIn post) when there is one.
 IETF = "https://datatracker.ietf.org/doc"
 ARCHIVE = "https://www.ietf.org/archive/id"
+LINKEDIN = {  # the Foundation's LinkedIn posts (tracking parameters removed)
+    "gevp-04": "https://www.linkedin.com/posts/gravit-open-network_github-gravitopennetworkgravitnet-canonical-activity-7487139690001760256-bX3I",
+    "testnet": "https://www.linkedin.com/posts/gravit-open-network_gravit-verifiableintelligence-gravotcore-activity-7488256075712880641-ZfMD",
+    "gevp-06": "https://www.linkedin.com/posts/gravit-open-network_gravitopennetwork-ietf-gevp-activity-7490842551374024704-miMX",
+    "two-track": "https://www.linkedin.com/posts/gravit-open-network_euaiact-ietf-gevp-activity-7501247819274616832-p609",
+}
 DRAFTS = [
-    # (date, title, name, rev, {label: url} of parallel publications)
-    ("2026-08-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "07", {}),
-    ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00", {}),
-    ("2026-07-21", "VCP – Verifiable Convergence Protocol", "draft-gravit-vcp", "01", {}),
+    # (date, title, name, current rev, all revs oldest first, {rev: {label: url}} parallel publications)
+    ("2026-08-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "07",
+     ["00", "01", "02", "03", "04", "05", "06", "07"],
+     {"04": {"LinkedIn": LINKEDIN["gevp-04"]}, "06": {"LinkedIn": LINKEDIN["gevp-06"]},
+      "07": {"LinkedIn": LINKEDIN["two-track"]}}),
+    ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
+     ["00"], {"00": {"LinkedIn": LINKEDIN["two-track"]}}),
+    ("2026-07-21", "VCP – Verifiable Convergence Protocol", "draft-gravit-vcp", "01", ["00", "01"], {}),
 ]
+CODE = [
+    ("Gravit Grover", "https://github.com/gravit-open-network-foundation/gravit-grover"),
+    ("Gravit Verifier", "https://github.com/gravit-open-network-foundation/verifier"),
+]
+EARLIER = {"de": "Frühere Fassungen", "fr": "Versions antérieures", "it": "Versioni precedenti", "en": "Earlier versions"}
+CODE_TEXT = {"de": "Quellcode", "fr": "Code source", "it": "Codice sorgente", "en": "Source code"}
 
 
 def draft_links(name, rev, extra):
@@ -424,16 +440,36 @@ PUB_TEXT = {
     "it": ("Internet-Draft", "Gli Internet-Draft sono contributi individuali; non sono approvati dall'IETF e non hanno uno status formale nel processo di standardizzazione."),
     "en": ("Internet-Drafts", "Internet-Drafts are individual submissions; they are not endorsed by the IETF and have no formal standing in the IETF standards process."),
 }
+def revisions_html(lang, name, current, revs, posts):
+    earlier = [r for r in revs if r != current]
+    if not earlier:
+        return ""
+    return (f'<div class="links">{EARLIER[lang]}: ' + " · ".join(
+        f'<a href="{IETF}/{name}/{r}/">-{r}</a>'
+        + "".join(f' (<a href="{u}">{t}</a>)' for t, u in posts.get(r, {}).items())
+        for r in reversed(earlier)) + "</div>")
+
+
 PAGES["publications"] = {
     "title": LABELS["publications"],
     "tagline": {"de": "Offene Spezifikationen", "fr": "Spécifications ouvertes", "it": "Specifiche aperte", "en": "Open specifications"},
     "body": {l: f"<h2>{PUB_TEXT[l][0]}</h2>\n<ul class=\"entries\">\n" + "".join(
-        f'<li><div class="date">{d}</div><div class="title">{t}</div>{draft_links(n, r, x)}</li>\n'
-        for d, t, n, r, x in DRAFTS) + f"</ul>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>" for l in LANGS},
+        f'<li><div class="date">{d}</div><div class="title">{t}</div>'
+        f'<div class="links">{draft_links(n, r, p.get(r, {}))}</div>{revisions_html(l, n, r, rs, p)}</li>\n'
+        for d, t, n, r, rs, p in DRAFTS) + f"</ul>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>"
+        + f"\n<h2>{CODE_TEXT[l]}</h2>\n<ul>" + "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in CODE) + "</ul>"
+        for l in LANGS},
 }
 
 # News / activities: newest first. Add entries here; they appear on News and Home.
 NEWS = [
+    ("2026-09-03", {"de": "Zwei-Spur-Architektur: GEVP-07 und VEDS-00", "fr": "Architecture à deux voies : GEVP-07 et VEDS-00",
+                    "it": "Architettura a due binari: GEVP-07 e VEDS-00", "en": "Two-track architecture: GEVP-07 and VEDS-00"},
+     {"de": "GEVP beschreibt, wie verifiziert wird; VEDS, was eine verifizierte Entscheidung garantieren muss – mit Bezug auf Art. 50 EU AI Act.",
+      "fr": "GEVP décrit comment vérifier ; VEDS, ce qu'une décision vérifiée doit garantir – en lien avec l'art. 50 de l'AI Act de l'UE.",
+      "it": "GEVP descrive come verificare; VEDS, che cosa deve garantire una decisione verificata – con riferimento all'art. 50 dell'AI Act UE.",
+      "en": "GEVP describes how to verify; VEDS what a verified decision must guarantee – with reference to Art. 50 of the EU AI Act."},
+     f'<a href="{LINKEDIN["two-track"]}">LinkedIn</a>'),
     ("2026-08-12", {"de": "GEVP-07 veröffentlicht", "fr": "Publication de GEVP-07", "it": "Pubblicato GEVP-07", "en": "GEVP-07 published"},
      {"de": "Revision 07 des Gravit Epistemic Verification Protocol als IETF Internet-Draft.",
       "fr": "Révision 07 du Gravit Epistemic Verification Protocol publiée comme Internet-Draft de l'IETF.",
@@ -444,6 +480,25 @@ NEWS = [
       "fr": "Première version du standard de décision épistémique vérifiable publiée comme Internet-Draft de l'IETF.",
       "it": "Prima versione dello standard per decisioni epistemiche verificabili pubblicata come Internet-Draft dell'IETF.",
       "en": "First version of the verifiable epistemic decision standard published as an IETF Internet-Draft."}, draft_links("draft-gravit-verifiable-epistemic-decision", "00", {})),
+    ("2026-08-05", {"de": "GEVP-06 veröffentlicht", "fr": "Publication de GEVP-06", "it": "Pubblicato GEVP-06", "en": "GEVP-06 published"},
+     {"de": "Revision 06 des Gravit Epistemic Verification Protocol als IETF Internet-Draft.",
+      "fr": "Révision 06 du Gravit Epistemic Verification Protocol publiée comme Internet-Draft de l'IETF.",
+      "it": "Revisione 06 del Gravit Epistemic Verification Protocol pubblicata come Internet-Draft dell'IETF.",
+      "en": "Revision 06 of the Gravit Epistemic Verification Protocol published as an IETF Internet-Draft."},
+     draft_links("draft-gravit-gevp", "06", {"LinkedIn": LINKEDIN["gevp-06"]})),
+    ("2026-07-29", {"de": "Öffentliches Testnet von Gravit Core angekündigt", "fr": "Annonce du testnet public de Gravit Core",
+                    "it": "Annunciato il testnet pubblico di Gravit Core", "en": "Public testnet of Gravit Core announced"},
+     {"de": "Ankündigung des öffentlichen Testnets (gestartet am 25.07.2026).",
+      "fr": "Annonce du testnet public (lancé le 25.07.2026).",
+      "it": "Annuncio del testnet pubblico (avviato il 25.07.2026).",
+      "en": "Announcement of the public testnet (launched on 25 July 2026)."},
+     f'<a href="{LINKEDIN["testnet"]}">LinkedIn</a>'),
+    ("2026-07-24", {"de": "GEVP-04 veröffentlicht", "fr": "Publication de GEVP-04", "it": "Pubblicato GEVP-04", "en": "GEVP-04 published"},
+     {"de": "Revision 04 des Gravit Epistemic Verification Protocol als IETF Internet-Draft.",
+      "fr": "Révision 04 du Gravit Epistemic Verification Protocol publiée comme Internet-Draft de l'IETF.",
+      "it": "Revisione 04 del Gravit Epistemic Verification Protocol pubblicata come Internet-Draft dell'IETF.",
+      "en": "Revision 04 of the Gravit Epistemic Verification Protocol published as an IETF Internet-Draft."},
+     draft_links("draft-gravit-gevp", "04", {"LinkedIn": LINKEDIN["gevp-04"]})),
     ("2026-07-21", {"de": "VCP-01 veröffentlicht", "fr": "Publication de VCP-01", "it": "Pubblicato VCP-01", "en": "VCP-01 published"},
      {"de": "Revision 01 des Verifiable Convergence Protocol als IETF Internet-Draft.",
       "fr": "Révision 01 du Verifiable Convergence Protocol publiée comme Internet-Draft de l'IETF.",
