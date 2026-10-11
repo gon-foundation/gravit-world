@@ -611,6 +611,7 @@ PRINCIPLE = {
                 "nie einfach erklärt, sondern durch Verifikation fortlaufend erhalten.",
         "truth": "Jeder hat seine eigene Sicht der Dinge. Die Wahrheit ist eine.",
         "quote": "Ein Symbol lässt sich leicht auf Hochglanz polieren. Geschichte lässt sich nicht auslöschen.",
+        "method": 'Wir arbeiten so, wie wir es erklären. In unserer eigenen Forschung – in Laborumgebungen, auf der Suche nach tragfähigen Theorien und nach der Konvergenz unterschiedlicher Faktoren – wenden wir genau die Methoden an, die wir vorschlagen, und keine anderen: Jedes Ergebnis trägt seinen Zeitstempel und seine Geschichte, und jede Aussage muss durch Code reproduzierbar sein. So prüfen wir an uns selbst, was wir der Menschheit anbieten.',
         "purpose": "Unser Ziel ist es, gemeinsam mit unseren Mitstreitern bleibende Werte für künftige Generationen zu schaffen. "
                    "Weil wir es erklären, sind wir verpflichtet, es zu erfüllen.",
     },
@@ -627,6 +628,7 @@ PRINCIPLE = {
                 "vérité n'est jamais simplement déclarée, mais maintenue en permanence par la vérification.",
         "truth": "Chacun a sa propre version des faits. La vérité est une.",
         "quote": "Un symbole se polit facilement jusqu'à briller. L'histoire ne peut pas être effacée.",
+        "method": "Nous travaillons comme nous le déclarons. Dans notre propre recherche – dans des environnements de laboratoire, en quête de théories solides et de convergences entre différents facteurs – nous appliquons exactement les méthodes que nous proposons, et aucune autre : chaque résultat porte son horodatage et son histoire, et chaque affirmation doit être reproductible par le code. Ainsi, nous éprouvons sur nous-mêmes ce que nous proposons à l'humanité.",
         "purpose": "Notre but, avec nos compagnons de route, est de créer une valeur durable pour les générations futures. "
                    "Parce que nous le déclarons, nous sommes tenus de l'accomplir.",
     },
@@ -643,6 +645,7 @@ PRINCIPLE = {
                 "non viene mai semplicemente dichiarata, ma mantenuta costantemente dalla verifica.",
         "truth": "Ognuno ha la propria versione dei fatti. La verità è una sola.",
         "quote": "Un simbolo si lucida facilmente fino a farlo brillare. La storia non si può cancellare.",
+        "method": "Lavoriamo come dichiariamo. Nella nostra ricerca – in ambienti di laboratorio, alla ricerca di teorie solide e di convergenze tra fattori diversi – applichiamo esattamente i metodi che proponiamo, e nessun altro: ogni risultato porta la sua marca temporale e la sua storia, e ogni affermazione deve essere riproducibile dal codice. Così verifichiamo su noi stessi ciò che proponiamo all'umanità.",
         "purpose": "Il nostro scopo, insieme ai nostri compagni di strada, è creare un valore duraturo per le generazioni future. "
                    "Poiché lo dichiariamo, siamo tenuti a realizzarlo.",
     },
@@ -659,6 +662,7 @@ PRINCIPLE = {
                 "maintained by verification.",
         "truth": "Everyone has their own version of the facts. The truth is one.",
         "quote": "A symbol can easily be polished to a shine. History cannot be erased.",
+        "method": 'We work the way we declare. In our own research – in laboratory sandboxes, in the search for sound theories and for convergence between different factors – we use exactly the methods we propose, and no others: every result carries its timestamp and its history, and every claim must be reproducible by code. In this way we test on ourselves what we offer to humanity.',
         "purpose": "Our purpose, together with our fellow founders, is to create lasting value for future generations. "
                    "Because we declare it, we are bound to deliver it.",
     },
