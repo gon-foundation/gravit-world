@@ -399,14 +399,25 @@ PAGES["projects"] = {
     "body": {l: OVERVIEW[l] + PROJECT_LIST[l] for l in LANGS},
 }
 
+# Each publication links to the exact published version (not the generic document page),
+# plus parallel publications (e.g. the Foundation's LinkedIn post) when there is one.
+IETF = "https://datatracker.ietf.org/doc"
+ARCHIVE = "https://www.ietf.org/archive/id"
 DRAFTS = [
-    ("2026-08-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp-07",
-     "https://datatracker.ietf.org/doc/draft-gravit-gevp/"),
-    ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision-00",
-     "https://datatracker.ietf.org/doc/draft-gravit-verifiable-epistemic-decision/"),
-    ("2026-07-21", "VCP – Verifiable Convergence Protocol", "draft-gravit-vcp-01",
-     "https://datatracker.ietf.org/doc/draft-gravit-vcp/"),
+    # (date, title, name, rev, {label: url} of parallel publications)
+    ("2026-08-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "07", {}),
+    ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00", {}),
+    ("2026-07-21", "VCP – Verifiable Convergence Protocol", "draft-gravit-vcp", "01", {}),
 ]
+
+
+def draft_links(name, rev, extra):
+    """Direct links to one published draft version: datatracker page, full text, parallel posts."""
+    links = [(f"{name}-{rev}", f"{IETF}/{name}/{rev}/"), ("HTML", f"{ARCHIVE}/{name}-{rev}.html"),
+             ("TXT", f"{ARCHIVE}/{name}-{rev}.txt")] + list(extra.items())
+    return " · ".join(f'<a href="{u}">{t}</a>' for t, u in links)
+
+
 PUB_TEXT = {
     "de": ("Internet-Drafts", "Internet-Drafts sind Einzeleinreichungen; sie sind nicht von der IETF verabschiedet und haben im Standardisierungsprozess keinen formellen Status."),
     "fr": ("Internet-Drafts", "Les Internet-Drafts sont des soumissions individuelles ; ils ne sont pas approuvés par l'IETF et n'ont pas de statut formel dans le processus de normalisation."),
@@ -417,8 +428,8 @@ PAGES["publications"] = {
     "title": LABELS["publications"],
     "tagline": {"de": "Offene Spezifikationen", "fr": "Spécifications ouvertes", "it": "Specifiche aperte", "en": "Open specifications"},
     "body": {l: f"<h2>{PUB_TEXT[l][0]}</h2>\n<ul class=\"entries\">\n" + "".join(
-        f'<li><div class="date">{d}</div><div class="title">{t}</div><a href="{u}">{n}</a></li>\n'
-        for d, t, n, u in DRAFTS) + f"</ul>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>" for l in LANGS},
+        f'<li><div class="date">{d}</div><div class="title">{t}</div>{draft_links(n, r, x)}</li>\n'
+        for d, t, n, r, x in DRAFTS) + f"</ul>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>" for l in LANGS},
 }
 
 # News / activities: newest first. Add entries here; they appear on News and Home.
@@ -427,17 +438,17 @@ NEWS = [
      {"de": "Revision 07 des Gravit Epistemic Verification Protocol als IETF Internet-Draft.",
       "fr": "Révision 07 du Gravit Epistemic Verification Protocol publiée comme Internet-Draft de l'IETF.",
       "it": "Revisione 07 del Gravit Epistemic Verification Protocol pubblicata come Internet-Draft dell'IETF.",
-      "en": "Revision 07 of the Gravit Epistemic Verification Protocol published as an IETF Internet-Draft."}),
+      "en": "Revision 07 of the Gravit Epistemic Verification Protocol published as an IETF Internet-Draft."}, draft_links("draft-gravit-gevp", "07", {})),
     ("2026-08-09", {"de": "VEDS-00 veröffentlicht", "fr": "Publication de VEDS-00", "it": "Pubblicato VEDS-00", "en": "VEDS-00 published"},
      {"de": "Erste Fassung des Standards für verifizierbare epistemische Entscheidungen als IETF Internet-Draft.",
       "fr": "Première version du standard de décision épistémique vérifiable publiée comme Internet-Draft de l'IETF.",
       "it": "Prima versione dello standard per decisioni epistemiche verificabili pubblicata come Internet-Draft dell'IETF.",
-      "en": "First version of the verifiable epistemic decision standard published as an IETF Internet-Draft."}),
+      "en": "First version of the verifiable epistemic decision standard published as an IETF Internet-Draft."}, draft_links("draft-gravit-verifiable-epistemic-decision", "00", {})),
     ("2026-07-21", {"de": "VCP-01 veröffentlicht", "fr": "Publication de VCP-01", "it": "Pubblicato VCP-01", "en": "VCP-01 published"},
      {"de": "Revision 01 des Verifiable Convergence Protocol als IETF Internet-Draft.",
       "fr": "Révision 01 du Verifiable Convergence Protocol publiée comme Internet-Draft de l'IETF.",
       "it": "Revisione 01 del Verifiable Convergence Protocol pubblicata come Internet-Draft dell'IETF.",
-      "en": "Revision 01 of the Verifiable Convergence Protocol published as an IETF Internet-Draft."}),
+      "en": "Revision 01 of the Verifiable Convergence Protocol published as an IETF Internet-Draft."}, draft_links("draft-gravit-vcp", "01", {})),
 ]
 PAGES["news"] = {
     "title": LABELS["news"],

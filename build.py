@@ -98,8 +98,9 @@ def statutes_html(lang):
 def news_html(lang, limit=None):
     items = C.NEWS[:limit] if limit else C.NEWS
     return '<ul class="entries">' + "".join(
-        f'<li><div class="date">{d}</div><div class="title">{t[lang]}</div><div>{x[lang]}</div></li>'
-        for d, t, x in items) + "</ul>"
+        f'<li><div class="date">{e[0]}</div><div class="title">{e[1][lang]}</div><div>{e[2][lang]}</div>'
+        + (f'<div class="links">{e[3]}</div>' if len(e) > 3 else "") + "</li>"
+        for e in items) + "</ul>"
 
 
 def shell(root, lang, slug, title, description, main, draft):
