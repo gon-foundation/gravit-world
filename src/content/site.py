@@ -417,7 +417,7 @@ DRAFTS = [
       "07": {"LinkedIn": LINKEDIN["two-track"]}}),
     ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
      ["00"], {"00": {"LinkedIn": LINKEDIN["two-track"]}}),
-    ("2026-07-21", "VCP – Verifiable Convergence Protocol", "draft-gravit-vcp", "01", ["00", "01"], {}),
+    ("2026-07-21", "VCP – Verifiable Convergence Protocol (superseded: renamed GEVP to avoid a name collision with draft-kamimura-scitt-vcp)", "draft-gravit-vcp", "01", ["00", "01"], {}),
 ]
 CODE = [
     ("Gravit Grover", "https://github.com/gravit-open-network-foundation/gravit-grover"),
