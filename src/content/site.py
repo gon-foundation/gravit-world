@@ -411,8 +411,8 @@ LINKEDIN = {  # the Foundation's LinkedIn posts (tracking parameters removed)
 }
 DRAFTS = [
     # (date, title, name, current rev, all revs oldest first, {rev: {label: url}} parallel publications)
-    ("2026-08-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "07",
-     ["00", "01", "02", "03", "04", "05", "06", "07"],
+    ("2026-10-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "08",
+     ["00", "01", "02", "03", "04", "05", "06", "07", "08"],
      {"04": {"LinkedIn": LINKEDIN["gevp-04"]}, "06": {"LinkedIn": LINKEDIN["gevp-06"]},
       "07": {"LinkedIn": LINKEDIN["two-track"]}}),
     ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
@@ -463,6 +463,13 @@ PAGES["publications"] = {
 
 # News / activities: newest first. Add entries here; they appear on News and Home.
 NEWS = [
+    ("2026-10-12", {"de": "GEVP-08 veröffentlicht: Korrektur", "fr": "Publication de GEVP-08 : correction",
+                    "it": "Pubblicato GEVP-08: correzione", "en": "GEVP-08 published: a correction"},
+     {"de": "Revision 08 ersetzt die nicht reproduzierbaren Kalibrierungszahlen früherer Fassungen durch reproduzierbare Ergebnisse; der Schwellenwert 0,73 wird nicht mehr empfohlen. Die früheren Zahlen bleiben dokumentiert.",
+      "fr": "La révision 08 remplace les chiffres de calibrage non reproductibles des versions antérieures par des résultats reproductibles ; le seuil de 0,73 n'est plus recommandé. Les anciens chiffres restent documentés.",
+      "it": "La revisione 08 sostituisce i dati di calibrazione non riproducibili delle versioni precedenti con risultati riproducibili; la soglia 0,73 non è più raccomandata. I dati precedenti restano documentati.",
+      "en": "Revision 08 replaces the unreproducible calibration figures of earlier revisions with reproducible results; the 0.73 threshold is no longer recommended. The earlier figures remain on record."},
+     draft_links("draft-gravit-gevp", "08", {})),
     ("2026-09-03", {"de": "Zwei-Spur-Architektur: GEVP-07 und VEDS-00", "fr": "Architecture à deux voies : GEVP-07 et VEDS-00",
                     "it": "Architettura a due binari: GEVP-07 e VEDS-00", "en": "Two-track architecture: GEVP-07 and VEDS-00"},
      {"de": "GEVP beschreibt, wie verifiziert wird; VEDS, was eine verifizierte Entscheidung garantieren muss – mit Bezug auf Art. 50 EU AI Act.",
