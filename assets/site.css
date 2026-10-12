@@ -103,13 +103,10 @@ header {
   white-space: nowrap;
 }
 
-/* the mark: the original Gravit Open Network card, scaled down, framed like the card */
+/* the mark: the original Gravit Open Network artwork, scaled down, without a frame */
 .astra {
   width: var(--mark-w); height: var(--mark-h); flex: none; display: block;
-  border-radius: var(--mark-radius);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 0 0 1px rgba(110, 190, 255, 0.10), 0 10px 28px rgba(0, 0, 0, 0.45);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo-word {
@@ -124,7 +121,7 @@ header {
 }
 .logo:hover .astra, .logo:focus-visible .astra {
   transform: translateY(-3px);
-  box-shadow: 0 0 0 1px rgba(140, 210, 255, 0.35), 0 0 24px rgba(0, 150, 255, 0.35), 0 14px 32px rgba(0, 0, 0, 0.55); }
+  filter: drop-shadow(0 0 14px rgba(0, 150, 255, 0.35)); }
 .logo:hover .logo-word, .logo:focus-visible .logo-word { text-shadow: 0 0 20px rgba(90, 190, 255, 0.9); }
 @media (max-width: 900px) {
   :root { --mark-w: 72px; --mark-h: 108px; --menu-size: 11px; --line-offset: 8px; }
