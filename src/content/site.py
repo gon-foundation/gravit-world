@@ -434,6 +434,12 @@ def draft_links(name, rev, extra):
     return " · ".join(f'<a href="{u}">{t}</a>' for t, u in links)
 
 
+RFC_GOAL = {
+    "de": "<strong>Unser Ziel: die Veröffentlichung von GEVP als RFC.</strong>",
+    "fr": "<strong>Notre objectif : la publication de GEVP en tant que RFC.</strong>",
+    "it": "<strong>Il nostro obiettivo: la pubblicazione di GEVP come RFC.</strong>",
+    "en": "<strong>Our goal: publication of GEVP as an RFC.</strong>",
+}
 PUB_TEXT = {
     "de": ("Internet-Drafts", "Internet-Drafts sind Einzeleinreichungen; sie sind nicht von der IETF verabschiedet und haben im Standardisierungsprozess keinen formellen Status."),
     "fr": ("Internet-Drafts", "Les Internet-Drafts sont des soumissions individuelles ; ils ne sont pas approuvés par l'IETF et n'ont pas de statut formel dans le processus de normalisation."),
@@ -456,7 +462,7 @@ PAGES["publications"] = {
     "body": {l: f"<h2>{PUB_TEXT[l][0]}</h2>\n<ul class=\"entries\">\n" + "".join(
         f'<li><div class="date">{d}</div><div class="title">{t}</div>'
         f'<div class="links">{draft_links(n, r, p.get(r, {}))}</div>{revisions_html(l, n, r, rs, p)}</li>\n'
-        for d, t, n, r, rs, p in DRAFTS) + f"</ul>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>"
+        for d, t, n, r, rs, p in DRAFTS) + f"</ul>\n<p>{RFC_GOAL[l]}</p>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>"
         + f"\n<h2>{CODE_TEXT[l]}</h2>\n<ul>" + "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in CODE) + "</ul>"
         for l in LANGS},
 }
