@@ -411,8 +411,8 @@ LINKEDIN = {  # the Foundation's LinkedIn posts (tracking parameters removed)
 }
 DRAFTS = [
     # (date, title, name, current rev, all revs oldest first, {rev: {label: url}} parallel publications)
-    ("2026-10-12", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "08",
-     ["00", "01", "02", "03", "04", "05", "06", "07", "08"],
+    ("2026-10-13", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "09",
+     ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09"],
      {"04": {"LinkedIn": LINKEDIN["gevp-04"]}, "06": {"LinkedIn": LINKEDIN["gevp-06"]},
       "07": {"LinkedIn": LINKEDIN["two-track"]}}),
     ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
@@ -469,6 +469,13 @@ PAGES["publications"] = {
 
 # News / activities: newest first. Add entries here; they appear on News and Home.
 NEWS = [
+    ("2026-10-13", {"de": "GEVP-09 veröffentlicht: vollständige Spezifikation", "fr": "Publication de GEVP-09 : spécification complète",
+                    "it": "Pubblicato GEVP-09: specifica completa", "en": "GEVP-09 published: a complete specification"},
+     {"de": "Revision 09 beschreibt das Protokoll so genau wie die Referenzimplementierung v0.6.0: Format und Signatur der Belege, das signierte Ergebnis (wahr, falsch, kein Urteil), das Register mit Schwellenwert der Root-Schlüssel, die reproduzierbare Entscheidung und signierte Quittungen für die Prüfung ohne Vertrauen in den Dienst. Unser Ziel: die Veröffentlichung als RFC.",
+      "fr": "La révision 09 décrit le protocole aussi précisément que l'implémentation de référence v0.6.0 : format et signature des preuves, résultat signé (vrai, faux, sans verdict), registre accepté sous un seuil de clés racines, décision reproductible et reçus signés permettant un audit sans faire confiance au service. Notre objectif : la publication en tant que RFC.",
+      "it": "La revisione 09 descrive il protocollo con la stessa precisione dell'implementazione di riferimento v0.6.0: formato e firma delle prove, risultato firmato (vero, falso, nessun verdetto), registro accettato sotto una soglia di chiavi radice, decisione riproducibile e ricevute firmate per un audit senza fidarsi del servizio. Il nostro obiettivo: la pubblicazione come RFC.",
+      "en": "Revision 09 specifies the protocol as precisely as the reference implementation v0.6.0: the format and signature of evidence records, the signed result (true, false, no verdict), a registry accepted under a threshold of root keys, a reproducible decision record and signed receipts that let an auditor check decisions without trusting the service. Our goal: publication as an RFC."},
+     draft_links("draft-gravit-gevp", "09", {})),
     ("2026-10-12", {"de": "GEVP-08 veröffentlicht: Korrektur", "fr": "Publication de GEVP-08 : correction",
                     "it": "Pubblicato GEVP-08: correzione", "en": "GEVP-08 published: a correction"},
      {"de": "Revision 08 ersetzt die nicht reproduzierbaren Kalibrierungszahlen früherer Fassungen durch reproduzierbare Ergebnisse; der Schwellenwert 0,73 wird nicht mehr empfohlen. Die früheren Zahlen bleiben dokumentiert.",
