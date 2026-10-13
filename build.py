@@ -49,11 +49,29 @@ def lang_switch(root, lang, slug):
         f'{" aria-current=\"true\"" if l == lang else ""}>{l}</a>' for l in langs)
 
 
+FAMILY = {  # same strip as on gravit.space and gravitverifier.space; this site is the Foundation
+    "en": ("Gravit family", "Foundation", "Network", "Verifier", "Code", "Standard"),
+    "de": ("Gravit-Familie", "Foundation", "Netzwerk", "Verifier", "Code", "Standard"),
+    "fr": ("Famille Gravit", "Fondation", "Réseau", "Vérificateur", "Code", "Standard"),
+    "it": ("Famiglia Gravit", "Fondazione", "Rete", "Verificatore", "Codice", "Standard"),
+}
+
+
+def family(lang):
+    t = FAMILY.get(lang, FAMILY["en"])
+    links = [("https://gravit.world", t[1], True), ("https://gravit.space", t[2], False),
+             ("https://gravitverifier.space", t[3], False), ("https://github.com/gravit-open-network-foundation", t[4], False),
+             ("https://datatracker.ietf.org/doc/draft-gravit-gevp/", t[5], False)]
+    items = "".join(f'<a href="{u}"{" aria-current=\"true\"" if cur else ""}>{n}</a>' for u, n, cur in links)
+    return f'<div class="family" aria-label="{t[0]}"><span class="family-label">{t[0]}</span>{items}</div>'
+
+
 def footer(root, lang):
     links = " ".join(f'<a href="{href(root, lang, s)}">{C.LABELS[s][lang]}</a>' for s in C.FOOTER_NAV)
     # same icons, order and markup as the gravit.space footer
     social = (TPL / "socials.html").read_text(encoding="utf-8")
     return f"""  <footer>
+    {family(lang)}
     <nav class="footer-links" aria-label="Legal">{links}</nav>
     <p class="footer-copy">{C.COMMON["copyright"][lang]}</p>
     {social}

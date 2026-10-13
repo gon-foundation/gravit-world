@@ -366,7 +366,7 @@ PROJECT_LIST = {
   <li><strong>Offene Standardisierung</strong> – Spezifikationen als IETF Internet-Drafts (siehe <a href="../publications/">Publikationen</a>).</li>
   <li><strong>Referenzimplementierung</strong> – quelloffener Verifier, der die Regeln reproduzierbar umsetzt und gemeinsam mit Testvektoren geprüft wird.</li>
 </ul>
-<p class="note">Technische Details und Code: <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Technische Details und Code: <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
     "fr": """
 <h2>Projets en cours</h2>
 <ul>
@@ -374,7 +374,7 @@ PROJECT_LIST = {
   <li><strong>Standardisation ouverte</strong> – spécifications sous forme d'Internet-Drafts de l'IETF (voir <a href="../publications/">Publications</a>).</li>
   <li><strong>Implémentation de référence</strong> – vérificateur open source appliquant les règles de façon reproductible, contrôlé par des vecteurs de test.</li>
 </ul>
-<p class="note">Détails techniques et code : <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Détails techniques et code : <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
     "it": """
 <h2>Progetti in corso</h2>
 <ul>
@@ -382,7 +382,7 @@ PROJECT_LIST = {
   <li><strong>Standardizzazione aperta</strong> – specifiche come Internet-Draft dell'IETF (vedi <a href="../publications/">Pubblicazioni</a>).</li>
   <li><strong>Implementazione di riferimento</strong> – verificatore open source che applica le regole in modo riproducibile, controllato con vettori di test.</li>
 </ul>
-<p class="note">Dettagli tecnici e codice: <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Dettagli tecnici e codice: <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
     "en": """
 <h2>Current projects</h2>
 <ul>
@@ -390,7 +390,7 @@ PROJECT_LIST = {
   <li><strong>Open standardisation</strong> – specifications published as IETF Internet-Drafts (see <a href="../publications/">Publications</a>).</li>
   <li><strong>Reference implementation</strong> – an open-source verifier that applies the rules reproducibly, checked against shared test vectors.</li>
 </ul>
-<p class="note">Technical details and code: <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Technical details and code: <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
 }
 
 PAGES["projects"] = {
@@ -417,7 +417,7 @@ DRAFTS = [
       "07": {"LinkedIn": LINKEDIN["two-track"]}}),
     ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
      ["00"], {"00": {"LinkedIn": LINKEDIN["two-track"]}}),
-    ("2026-07-21", "VCP – Verifiable Convergence Protocol", "draft-gravit-vcp", "01", ["00", "01"], {}),
+    ("2026-07-21", "VCP – Verifiable Convergence Protocol (superseded: renamed GEVP to avoid a name collision with draft-kamimura-scitt-vcp)", "draft-gravit-vcp", "01", ["00", "01"], {}),
 ]
 CODE = [
     ("Gravit Grover", "https://github.com/gravit-open-network-foundation/gravit-grover"),
@@ -434,6 +434,12 @@ def draft_links(name, rev, extra):
     return " · ".join(f'<a href="{u}">{t}</a>' for t, u in links)
 
 
+RFC_GOAL = {
+    "de": "<strong>Unser Ziel: die Veröffentlichung von GEVP als RFC.</strong>",
+    "fr": "<strong>Notre objectif : la publication de GEVP en tant que RFC.</strong>",
+    "it": "<strong>Il nostro obiettivo: la pubblicazione di GEVP come RFC.</strong>",
+    "en": "<strong>Our goal: publication of GEVP as an RFC.</strong>",
+}
 PUB_TEXT = {
     "de": ("Internet-Drafts", "Internet-Drafts sind Einzeleinreichungen; sie sind nicht von der IETF verabschiedet und haben im Standardisierungsprozess keinen formellen Status."),
     "fr": ("Internet-Drafts", "Les Internet-Drafts sont des soumissions individuelles ; ils ne sont pas approuvés par l'IETF et n'ont pas de statut formel dans le processus de normalisation."),
@@ -456,7 +462,7 @@ PAGES["publications"] = {
     "body": {l: f"<h2>{PUB_TEXT[l][0]}</h2>\n<ul class=\"entries\">\n" + "".join(
         f'<li><div class="date">{d}</div><div class="title">{t}</div>'
         f'<div class="links">{draft_links(n, r, p.get(r, {}))}</div>{revisions_html(l, n, r, rs, p)}</li>\n'
-        for d, t, n, r, rs, p in DRAFTS) + f"</ul>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>"
+        for d, t, n, r, rs, p in DRAFTS) + f"</ul>\n<p>{RFC_GOAL[l]}</p>\n<p class=\"note\">{PUB_TEXT[l][1]}</p>"
         + f"\n<h2>{CODE_TEXT[l]}</h2>\n<ul>" + "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in CODE) + "</ul>"
         for l in LANGS},
 }

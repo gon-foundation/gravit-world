@@ -651,3 +651,10 @@ footer .footer-links { transform: none; }
 .principle-truth { font-size: var(--fs-h3); font-weight: 700; color: #fff; text-shadow: 0 0 14px rgba(111, 208, 255, 0.35); }
 .principle blockquote { margin: 20px 0; padding-left: 18px; border-left: 2px solid var(--accent, #6fd0ff);
   font-style: italic; color: rgba(225, 240, 255, 0.92); max-width: 68ch; }
+
+/* ─── GRAVIT FAMILY (same strip on every Gravit site) ─── */
+.family { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 0 0 18px;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.family a { color: var(--muted); text-decoration: none; }
+.family a:hover, .family a[aria-current] { color: #fff; }
+.family-label { color: #4fc3f7; }
