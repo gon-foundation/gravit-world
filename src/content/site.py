@@ -366,7 +366,7 @@ PROJECT_LIST = {
   <li><strong>Offene Standardisierung</strong> – Spezifikationen als IETF Internet-Drafts (siehe <a href="../publications/">Publikationen</a>).</li>
   <li><strong>Referenzimplementierung</strong> – quelloffener Verifier, der die Regeln reproduzierbar umsetzt und gemeinsam mit Testvektoren geprüft wird.</li>
 </ul>
-<p class="note">Technische Details und Code: <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Technische Details und Code: <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
     "fr": """
 <h2>Projets en cours</h2>
 <ul>
@@ -374,7 +374,7 @@ PROJECT_LIST = {
   <li><strong>Standardisation ouverte</strong> – spécifications sous forme d'Internet-Drafts de l'IETF (voir <a href="../publications/">Publications</a>).</li>
   <li><strong>Implémentation de référence</strong> – vérificateur open source appliquant les règles de façon reproductible, contrôlé par des vecteurs de test.</li>
 </ul>
-<p class="note">Détails techniques et code : <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Détails techniques et code : <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
     "it": """
 <h2>Progetti in corso</h2>
 <ul>
@@ -382,7 +382,7 @@ PROJECT_LIST = {
   <li><strong>Standardizzazione aperta</strong> – specifiche come Internet-Draft dell'IETF (vedi <a href="../publications/">Pubblicazioni</a>).</li>
   <li><strong>Implementazione di riferimento</strong> – verificatore open source che applica le regole in modo riproducibile, controllato con vettori di test.</li>
 </ul>
-<p class="note">Dettagli tecnici e codice: <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Dettagli tecnici e codice: <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
     "en": """
 <h2>Current projects</h2>
 <ul>
@@ -390,7 +390,7 @@ PROJECT_LIST = {
   <li><strong>Open standardisation</strong> – specifications published as IETF Internet-Drafts (see <a href="../publications/">Publications</a>).</li>
   <li><strong>Reference implementation</strong> – an open-source verifier that applies the rules reproducibly, checked against shared test vectors.</li>
 </ul>
-<p class="note">Technical details and code: <a href="https://gravit.space">gravit.space</a></p>""",
+<p class="note">Technical details and code: <a href="https://gravit.space">gravit.space</a> · Gravit Verifier: <a href="https://gravitverifier.space">gravitverifier.space</a></p>""",
 }
 
 PAGES["projects"] = {
