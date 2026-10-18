@@ -567,28 +567,60 @@ PAGES["transparency"] = {
 <li>Sämtliche Mittel sind unwiderruflich dem gemeinnützigen Zweck gewidmet; Ausschüttungen an Mitglieder, Gründer oder Vorstand sind ausgeschlossen.</li>
 <li>Interessenkonflikte werden offengelegt; Vergütungen und Spesen sind reglementiert und werden dokumentiert.</li>
 <li>Bei Auflösung geht das verbleibende Vermögen an eine steuerbefreite Institution in der Schweiz mit gleichem oder ähnlichem Zweck.</li>
-</ul>""",
+</ul>
+<h2 id="standards">Sicherheit und Standards</h2>
+<p>Unsere Werkzeuge beruhen auf offenen, veröffentlichten Standards. Wir sagen genau, welche, und wie weit wir sind. Nichts davon ist eine Zertifizierung.</p>
+<ul>
+<li><strong>In Gebrauch:</strong> Signaturen Ed25519 (RFC 8032); Fingerabdrücke SHA-256 und SHA3-256 (FIPS 180-4, FIPS 202); öffentliches Belegprotokoll mit Merkle-Bäumen (RFC 9162); Zeitstempel von drei unabhängigen Stellen (RFC 3161); Verbindungen mit dem postquantensicheren Schlüsselaustausch ML-KEM (NIST FIPS 203).</li>
+<li><strong>In Arbeit:</strong> postquantensichere Signaturen ML-DSA (NIST FIPS 204) als zweite Signatur neben Ed25519.</li>
+<li><strong>Geplant:</strong> hashbasierte Signaturen SLH-DSA (NIST FIPS 205) für langlebige Nachweise.</li>
+</ul>
+<p>Signaturen von heute müssen noch in Jahrzehnten prüfbar sein. Deshalb stellen wir schrittweise und mit öffentlichen Testvektoren auf die neuen Standards des NIST um. Unsere Protokolle sind Internet-Drafts bei der IETF; die Arbeit des NIST zu postquantensicherer Kryptografie und zur Sicherheit von KI-Agenten verfolgen wir und werden uns an öffentlichen Konsultationen beteiligen. Wir sind mit dem NIST nicht verbunden und werden von ihm nicht empfohlen. Aktueller Stand: <a href="https://gravitverifier.space/#standards">gravitverifier.space</a>.</p>""",
         "fr": """<ul>
 <li>Les statuts et les principes de gouvernance sont publics.</li>
 <li>Un rapport d'activité est publié après chaque exercice.</li>
 <li>Tous les moyens sont affectés irrévocablement au but d'utilité publique ; aucune distribution aux membres, fondateurs ou membres du comité.</li>
 <li>Les conflits d'intérêts sont déclarés ; rémunérations et frais sont réglementés et documentés.</li>
 <li>En cas de dissolution, le patrimoine restant revient à une institution suisse exonérée d'impôt ayant un but identique ou similaire.</li>
-</ul>""",
+</ul>
+<h2 id="standards">Sécurité et normes</h2>
+<p>Nos outils reposent sur des normes ouvertes et publiées. Nous disons exactement lesquelles, et où nous en sommes. Rien de ceci n'est une certification.</p>
+<ul>
+<li><strong>En usage :</strong> signatures Ed25519 (RFC 8032) ; empreintes SHA-256 et SHA3-256 (FIPS 180-4, FIPS 202) ; journal public des reçus en arbres de Merkle (RFC 9162) ; horodatage par trois autorités indépendantes (RFC 3161) ; connexions avec l'échange de clés post quantique ML-KEM (NIST FIPS 203).</li>
+<li><strong>En cours :</strong> signatures post quantiques ML-DSA (NIST FIPS 204), en seconde signature à côté d'Ed25519.</li>
+<li><strong>Prévu :</strong> signatures fondées sur le hachage SLH-DSA (NIST FIPS 205) pour les preuves à long terme.</li>
+</ul>
+<p>Les signatures d'aujourd'hui doivent rester vérifiables dans des décennies. Nous passons donc pas à pas, avec des vecteurs de test publics, aux nouvelles normes du NIST. Nos protocoles sont des Internet-Drafts à l'IETF ; nous suivons les travaux du NIST sur la cryptographie post quantique et la sécurité des agents d'IA et participerons à ses consultations publiques. Nous ne sommes ni liés au NIST ni recommandés par lui. État actuel : <a href="https://gravitverifier.space/#standards">gravitverifier.space</a>.</p>""",
         "it": """<ul>
 <li>Lo statuto e i principi di governance sono pubblici.</li>
 <li>Dopo ogni esercizio viene pubblicato un rapporto di attività.</li>
 <li>Tutti i mezzi sono destinati irrevocabilmente allo scopo di pubblica utilità; nessuna distribuzione a membri, fondatori o membri del comitato.</li>
 <li>I conflitti di interesse sono dichiarati; retribuzioni e spese sono regolamentate e documentate.</li>
 <li>In caso di scioglimento il patrimonio residuo va a un'istituzione svizzera esente da imposte con scopo uguale o simile.</li>
-</ul>""",
+</ul>
+<h2 id="standards">Sicurezza e standard</h2>
+<p>I nostri strumenti si basano su standard aperti e pubblicati. Diciamo esattamente quali, e a che punto siamo. Nulla di ciò è una certificazione.</p>
+<ul>
+<li><strong>In uso:</strong> firme Ed25519 (RFC 8032); impronte SHA-256 e SHA3-256 (FIPS 180-4, FIPS 202); registro pubblico delle ricevute con alberi di Merkle (RFC 9162); marche temporali di tre autorità indipendenti (RFC 3161); connessioni con lo scambio di chiavi post quantistico ML-KEM (NIST FIPS 203).</li>
+<li><strong>In corso:</strong> firme post quantistiche ML-DSA (NIST FIPS 204) come seconda firma accanto a Ed25519.</li>
+<li><strong>Previsto:</strong> firme basate su hash SLH-DSA (NIST FIPS 205) per prove a lungo termine.</li>
+</ul>
+<p>Le firme di oggi devono restare verificabili per decenni. Per questo passiamo gradualmente, con vettori di test pubblici, ai nuovi standard del NIST. I nostri protocolli sono Internet-Draft presso l'IETF; seguiamo il lavoro del NIST sulla crittografia post quantistica e sulla sicurezza degli agenti di IA e parteciperemo alle sue consultazioni pubbliche. Non siamo affiliati al NIST né da esso raccomandati. Stato attuale: <a href="https://gravitverifier.space/#standards">gravitverifier.space</a>.</p>""",
         "en": """<ul>
 <li>The statutes and governance principles are public.</li>
 <li>An activity report is published after each financial year.</li>
 <li>All funds are irrevocably dedicated to the non-profit purpose; no distributions to members, founders or Board members.</li>
 <li>Conflicts of interest are disclosed; remuneration and expenses are regulated and documented.</li>
 <li>On dissolution, remaining assets go to a tax-exempt Swiss institution with the same or a similar purpose.</li>
-</ul>"""},
+</ul>
+<h2 id="standards">Security and standards</h2>
+<p>Our tools build on open, published standards. We say exactly which ones, and how far we are. Nothing here is a certification.</p>
+<ul>
+<li><strong>In use:</strong> Ed25519 signatures (RFC 8032); SHA-256 and SHA3-256 fingerprints (FIPS 180-4, FIPS 202); a public receipt log with Merkle trees (RFC 9162); timestamps from three independent authorities (RFC 3161); connections with the post quantum key exchange ML-KEM (NIST FIPS 203).</li>
+<li><strong>In progress:</strong> post quantum signatures ML-DSA (NIST FIPS 204) as a second signature next to Ed25519.</li>
+<li><strong>Planned:</strong> hash based signatures SLH-DSA (NIST FIPS 205) for long term proofs.</li>
+</ul>
+<p>Signatures made today must still be checkable in decades. So we are moving to NIST's new standards step by step, with public test vectors. Our protocols are Internet-Drafts at the IETF; we follow NIST's work on post quantum cryptography and on the security of AI agents and will take part in its public comment periods. We are not affiliated with or endorsed by NIST. Live status: <a href="https://gravitverifier.space/#standards">gravitverifier.space</a>.</p>"""},
 }
 
 PAGES["contact"] = {

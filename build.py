@@ -142,6 +142,8 @@ def shell(root, lang, slug, title, description, main, draft):
 {alternates}
   <link rel="icon" type="image/png" sizes="512x512" href="{root}/android-chrome-512x512.png" />
   <link rel="stylesheet" href="{root}/assets/site.css" />
+  <link rel="stylesheet" href="{root}/assets/theme.css" />
+  <script src="{root}/assets/theme.js"></script>
   {pending_css}
 </head>
 <body>
@@ -221,6 +223,8 @@ ROOT_INDEX = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gravit Open Network Foundation</title>
 <link rel="stylesheet" href="{root}/assets/site.css" />
+<link rel="stylesheet" href="{root}/assets/theme.css" />
+<script src="{root}/assets/theme.js"></script>
 <script>
 (function(){{var l=(navigator.languages||[navigator.language||"de"]).map(function(x){{return x.slice(0,2)}});
 var ok=["de","fr","it","en"];for(var i=0;i<l.length;i++){{if(ok.indexOf(l[i])>=0){{location.replace("{root}/"+l[i]+"/");return}}}}
