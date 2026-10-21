@@ -15,6 +15,9 @@ def PENDING(text: str) -> str:
 
 SITE_URL = "https://gravit.world"
 EMAIL = "web@gravit.world"
+EMAIL_SHOWN = "web [at] gravit.world"  # legal notice and privacy: shown, not linked (spam)
+CONTACT = '<a href="/contact/">{}</a>'
+CONTACT_LABEL = {"de": "Kontaktformular", "fr": "formulaire de contact", "it": "modulo di contatto", "en": "contact form"}
 LANGS = ["de", "fr", "it", "en"]
 LANG_NAMES = {"de": "Deutsch", "fr": "Français", "it": "Italiano", "en": "English"}
 FOUNDED_ISO = "2023-02-12"
@@ -539,22 +542,22 @@ PAGES["membership"] = {
 Über die Aufnahme entscheidet der Vorstand. Jedes Mitglied hat in der Vereinsversammlung eine Stimme.</p>
 <p>Der Austritt ist jederzeit durch schriftliche Erklärung an den Vorstand möglich. Ein Ausschluss ist nur bei erheblichem
 Verstoss gegen Zweck oder Pflichten und nach Anhörung möglich. Mitglieder haben keinen Anspruch auf das Vereinsvermögen.</p>
-<p>Aufnahmegesuche an: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""",
+<p>Aufnahmegesuche über das <a href="/contact/">Kontaktformular</a></p>""",
         "fr": f"""<p>Peuvent devenir membres les personnes physiques et morales qui soutiennent le but de l'association.
 Le comité décide de l'admission. Chaque membre dispose d'une voix à l'assemblée générale.</p>
 <p>La démission est possible en tout temps par déclaration écrite au comité. Une exclusion n'est possible qu'en cas de
 violation grave du but ou des obligations, après audition. Les membres n'ont aucun droit sur le patrimoine de l'association.</p>
-<p>Demandes d'admission : <a href="mailto:{EMAIL}">{EMAIL}</a></p>""",
+<p>Demandes d'admission : par le <a href="/contact/">formulaire de contact</a></p>""",
         "it": f"""<p>Possono diventare membri le persone fisiche e giuridiche che sostengono lo scopo dell'associazione.
 Il comitato decide sull'ammissione. Ogni membro dispone di un voto nell'assemblea dei soci.</p>
 <p>Il recesso è possibile in ogni momento con dichiarazione scritta al comitato. L'esclusione è possibile solo in caso di
 grave violazione dello scopo o degli obblighi, previa audizione. I membri non hanno diritti sul patrimonio dell'associazione.</p>
-<p>Domande di ammissione: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""",
+<p>Domande di ammissione: tramite il <a href="/contact/">modulo di contatto</a></p>""",
         "en": f"""<p>Natural and legal persons who support the association's purpose may become members. The Board decides on
 admission. Each member has one vote at the General Assembly.</p>
 <p>Members may resign at any time by written notice to the Board. Exclusion is possible only for serious breaches of the
 purpose or duties, after a hearing. Members have no claim on the association's assets.</p>
-<p>Applications to: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""},
+<p>Applications through the <a href="/contact/">contact form</a></p>"""},
 }
 
 PAGES["transparency"] = {
@@ -627,7 +630,7 @@ PAGES["contact"] = {
     "title": LABELS["contact"],
     "tagline": {"de": "Gravit Open Network Foundation", "fr": "Gravit Open Network Foundation",
                 "it": "Gravit Open Network Foundation", "en": "Gravit Open Network Foundation"},
-    "body": {l: f'<p>{COMMON["address"][l]}</p>\n<p><a href="mailto:{EMAIL}">{EMAIL}</a></p>' for l in LANGS},
+    "body": {l: f'<p>{COMMON["address"][l]}</p>\n<p><a href="/contact/">{CONTACT_LABEL[l]}</a></p>' for l in LANGS},
 }
 
 IMPRESSUM = {
@@ -648,7 +651,7 @@ def impressum_body(l):
   <dt>{sitz_l}</dt><dd>{sitz}</dd>
   <dt>{dom_l}</dt><dd>{COMMON["address"][l]}</dd>
   <dt>{rep_l}</dt><dd>{names}<br><em>{board_l}</em></dd>
-  <dt>{k_l}</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a></dd>
+  <dt>{k_l}</dt><dd>{EMAIL_SHOWN} · <a href="/contact/">{CONTACT_LABEL[l]}</a></dd>
   <dt>{w_l}</dt><dd>https://gravit.world</dd>
   <dt>{r_l}</dt><dd>Gravit Open Network Foundation, Dr. Alex Konviser</dd>
 </dl>"""
@@ -666,7 +669,7 @@ PAGES["privacy"] = {
     "tagline": {"de": "Datenschutzerklärung", "fr": "Déclaration de protection des données",
                 "it": "Informativa sulla protezione dei dati", "en": "Privacy notice"},
     "body": {
-        "de": f"""<p>Verantwortlich: Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zürich, <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        "de": f"""<p>Verantwortlich: Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zürich, {EMAIL_SHOWN}.</p>
 <h2>Besuch der Website</h2>
 <p>Die Website wird bei Hostpoint AG in der Schweiz betrieben. Beim Aufruf speichert der Server technisch notwendige Daten
 (IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp) in Protokolldateien, um den Betrieb und die Sicherheit zu
@@ -677,7 +680,7 @@ gewährleisten. Diese Daten werden nicht mit anderen Daten zusammengeführt und 
 <h2>Ihre Rechte</h2>
 <p>Nach dem Schweizer Datenschutzgesetz (DSG) können Sie Auskunft über Ihre Daten verlangen sowie deren Berichtigung oder
 Löschung. Wenden Sie sich dazu an die oben genannte Adresse.</p>""",
-        "fr": f"""<p>Responsable : Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zurich, <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        "fr": f"""<p>Responsable : Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zurich, {EMAIL_SHOWN}.</p>
 <h2>Consultation du site</h2>
 <p>Le site est hébergé par Hostpoint AG en Suisse. Lors de chaque consultation, le serveur enregistre des données techniquement
 nécessaires (adresse IP, date et heure, page consultée, type de navigateur) dans des fichiers journaux, afin d'assurer le
@@ -688,7 +691,7 @@ fonctionnement et la sécurité. Ces données ne sont pas combinées avec d'autr
 <h2>Vos droits</h2>
 <p>Selon la loi suisse sur la protection des données (LPD), vous pouvez demander l'accès à vos données ainsi que leur
 rectification ou leur effacement en vous adressant à l'adresse ci-dessus.</p>""",
-        "it": f"""<p>Titolare: Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zurigo, <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        "it": f"""<p>Titolare: Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zurigo, {EMAIL_SHOWN}.</p>
 <h2>Visita del sito</h2>
 <p>Il sito è ospitato da Hostpoint AG in Svizzera. A ogni accesso il server registra dati tecnicamente necessari (indirizzo
 IP, data e ora, pagina visitata, tipo di browser) in file di log, per garantirne il funzionamento e la sicurezza. Questi dati
@@ -699,7 +702,7 @@ non vengono combinati con altri dati e sono cancellati dopo breve tempo.</p>
 <h2>I suoi diritti</h2>
 <p>In base alla legge svizzera sulla protezione dei dati (LPD) può chiedere l'accesso ai suoi dati, nonché la loro rettifica
 o cancellazione, scrivendo all'indirizzo sopra indicato.</p>""",
-        "en": f"""<p>Controller: Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zürich, Switzerland, <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        "en": f"""<p>Controller: Gravit Open Network Foundation, Dufourstrasse 56, 8008 Zürich, Switzerland, {EMAIL_SHOWN}.</p>
 <h2>Visiting this website</h2>
 <p>The website is hosted by Hostpoint AG in Switzerland. On each visit the server stores technically necessary data (IP
 address, date and time, page requested, browser type) in log files to keep the site running and secure. This data is not
