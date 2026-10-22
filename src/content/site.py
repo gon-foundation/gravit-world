@@ -1,4 +1,4 @@
-"""Content of gravit.world in DE / FR / IT / EN.
+"""Content of gravitopennetwork.org (formerly gravit.world) in DE / FR / IT / EN.
 
 Facts (names, dates, address) come from Dr. Alex Konviser (2026-10-07) and the
 statutes in the Foundation's legal package. German is the legally authoritative
@@ -13,7 +13,7 @@ def PENDING(text: str) -> str:
     return f'<span class="pending" data-pending="1">{text}</span>'
 
 
-SITE_URL = "https://gravit.world"
+SITE_URL = "https://gravitopennetwork.org"
 EMAIL = "web@gravit.world"
 EMAIL_SHOWN = "web [at] gravit.world"  # legal notice and privacy: shown, not linked (spam)
 CONTACT = '<a href="/contact/">{}</a>'
@@ -652,7 +652,7 @@ def impressum_body(l):
   <dt>{dom_l}</dt><dd>{COMMON["address"][l]}</dd>
   <dt>{rep_l}</dt><dd>{names}<br><em>{board_l}</em></dd>
   <dt>{k_l}</dt><dd>{EMAIL_SHOWN} · <a href="/contact/">{CONTACT_LABEL[l]}</a></dd>
-  <dt>{w_l}</dt><dd>https://gravit.world</dd>
+  <dt>{w_l}</dt><dd>https://gravitopennetwork.org</dd>
   <dt>{r_l}</dt><dd>Gravit Open Network Foundation, Dr. Alex Konviser</dd>
 </dl>"""
 
