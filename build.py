@@ -1,4 +1,4 @@
-"""Build gravit.world (DE / FR / IT / EN) into dist/.
+"""Build gravitopennetwork.org (formerly gravit.world) (DE / FR / IT / EN) into dist/.
 
     python build.py               # preview: PENDING texts highlighted, banner shown
     python build.py --production  # refuses to build while any PENDING text remains
@@ -59,7 +59,7 @@ FAMILY = {  # same strip as on gravit.space and gravitverifier.space; this site 
 
 def family(lang):
     t = FAMILY.get(lang, FAMILY["en"])
-    links = [("https://gravit.world", t[1], True), ("https://gravit.space", t[2], False),
+    links = [("https://gravitopennetwork.org", t[1], True), ("https://gravit.space", t[2], False),
              ("https://gravitverifier.space", t[3], False), ("https://gravitpath.world", t[6], False), ("https://github.com/gravit-open-network-foundation", t[4], False),
              ("https://datatracker.ietf.org/doc/draft-gravit-gevp/", t[5], False)]
     items = "".join(f'<a href="{u}"{" aria-current=\"true\"" if cur else ""}>{n}</a>' for u, n, cur in links)
