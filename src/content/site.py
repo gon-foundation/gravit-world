@@ -414,8 +414,8 @@ LINKEDIN = {  # the Foundation's LinkedIn posts (tracking parameters removed)
 }
 DRAFTS = [
     # (date, title, name, current rev, all revs oldest first, {rev: {label: url}} parallel publications)
-    ("2026-10-13", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "09",
-     ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09"],
+    ("2026-10-23", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "11",
+     ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
      {"04": {"LinkedIn": LINKEDIN["gevp-04"]}, "06": {"LinkedIn": LINKEDIN["gevp-06"]},
       "07": {"LinkedIn": LINKEDIN["two-track"]}}),
     ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
@@ -472,6 +472,20 @@ PAGES["publications"] = {
 
 # News / activities: newest first. Add entries here; they appear on News and Home.
 NEWS = [
+    ("2026-10-23", {"de": "GEVP-11 veröffentlicht: aufgebaut auf SCITT und COSE Receipts", "fr": "Publication de GEVP-11 : fondé sur SCITT et COSE Receipts",
+                    "it": "Pubblicato GEVP-11: basato su SCITT e COSE Receipts", "en": "GEVP-11 published: built on SCITT and COSE Receipts"},
+     {"de": "Nach der Veröffentlichung von RFC 9943 (SCITT) und RFC 9942 (COSE Receipts) baut Revision 11 auf diesen Standards auf: Jeder Verifier ist ein Issuer, jeder Beleg ein Signed Statement über das geprüfte Artefakt. Geplante Kodierung: COSE_Sign1 mit CWT Claims (RFC 9597) und Ed25519 (RFC 9864), nur mit bestehenden IANA Registrierungen. Die Kodierung ist beschrieben, noch nicht implementiert.",
+      "fr": "Après la publication des RFC 9943 (SCITT) et RFC 9942 (COSE Receipts), la révision 11 s'appuie sur ces standards : chaque vérificateur est un Issuer, chaque preuve un Signed Statement sur l'artefact évalué. Encodage prévu : COSE_Sign1 avec CWT Claims (RFC 9597) et Ed25519 (RFC 9864), uniquement avec des enregistrements IANA existants. L'encodage est décrit, pas encore implémenté.",
+      "it": "Dopo la pubblicazione di RFC 9943 (SCITT) e RFC 9942 (COSE Receipts), la revisione 11 si basa su questi standard: ogni verificatore è un Issuer, ogni prova un Signed Statement sull'artefatto valutato. Codifica prevista: COSE_Sign1 con CWT Claims (RFC 9597) ed Ed25519 (RFC 9864), solo con registrazioni IANA esistenti. La codifica è descritta, non ancora implementata.",
+      "en": "With RFC 9943 (SCITT) and RFC 9942 (COSE Receipts) now published, revision 11 builds on them: each verifier is an Issuer, each record a Signed Statement about the artifact under evaluation. Planned encoding: COSE_Sign1 with CWT Claims (RFC 9597) and Ed25519 (RFC 9864), using only existing IANA registrations. The encoding is described, not yet implemented."},
+     draft_links("draft-gravit-gevp", "11", {})),
+    ("2026-10-22", {"de": "GEVP-10 veröffentlicht: Sicherheitseigenschaften", "fr": "Publication de GEVP-10 : propriétés de sûreté",
+                    "it": "Pubblicato GEVP-10: proprietà di sicurezza", "en": "GEVP-10 published: safety properties"},
+     {"de": "Revision 10 ergänzt Sicherheitseigenschaften mit Fehlerparameter t, Fälschungsschranke und Veto bei Widerspruch, den Bezug zur RATS Architektur, Zeitgrenzen durch unabhängige Zeitstempeldienste und ein Datenmodell in CDDL.",
+      "fr": "La révision 10 ajoute des propriétés de sûreté avec un paramètre de fautes t, une borne de falsification et un veto en cas de contradiction, le lien avec l'architecture RATS, des bornes temporelles par des services d'horodatage indépendants et un modèle de données en CDDL.",
+      "it": "La revisione 10 aggiunge proprietà di sicurezza con parametro di guasto t, limite di falsificazione e veto in caso di contraddizione, il rapporto con l'architettura RATS, limiti temporali tramite servizi di marcatura temporale indipendenti e un modello di dati in CDDL.",
+      "en": "Revision 10 adds safety properties with a fault parameter t, a forgery bound and a contradiction veto, the relation to the RATS architecture, time bounds from independent time-stamp authorities and a data model in CDDL."},
+     draft_links("draft-gravit-gevp", "10", {})),
     ("2026-10-13", {"de": "GEVP-09 veröffentlicht: vollständige Spezifikation", "fr": "Publication de GEVP-09 : spécification complète",
                     "it": "Pubblicato GEVP-09: specifica completa", "en": "GEVP-09 published: a complete specification"},
      {"de": "Revision 09 beschreibt das Protokoll so genau wie die Referenzimplementierung v0.6.0: Format und Signatur der Belege, das signierte Ergebnis (wahr, falsch, kein Urteil), das Register mit Schwellenwert der Root-Schlüssel, die reproduzierbare Entscheidung und signierte Quittungen für die Prüfung ohne Vertrauen in den Dienst. Unser Ziel: die Veröffentlichung als RFC.",
