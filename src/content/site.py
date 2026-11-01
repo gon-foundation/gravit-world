@@ -592,6 +592,14 @@ PAGES["transparency"] = {
 <li>Interessenkonflikte werden offengelegt; Vergütungen und Spesen sind reglementiert und werden dokumentiert.</li>
 <li>Bei Auflösung geht das verbleibende Vermögen an eine steuerbefreite Institution in der Schweiz mit gleichem oder ähnlichem Zweck.</li>
 </ul>
+<h2 id="record">Öffentliches Register</h2>
+<p>Alles, was wir veröffentlichen und ändern, wird öffentlich festgehalten, wie Code: <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<ul>
+<li>Jede Änderung kommt als Pull Request, mit Begründung, und bleibt sichtbar, ob sie angenommen wird oder nicht.</li>
+<li>Nichts wird umgeschrieben. Fehler werden korrigiert, indem eine Korrektur hinzugefügt wird (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Kandidaten für künftige Protokolle und Infrastrukturen werden auf demselben Weg vorgeschlagen, mit Testfällen.</li>
+</ul>
+<p>Das Ziel reicht zurück ins Jahr 2015 und zu Decipial, einer Sammlung dezentraler Prinzipien. Methoden und Technologien haben sich verändert, das Ziel nicht: Information und geschützte Information für jeden Menschen zugänglich zu machen und sie zu hüten. „Die Würde des Menschen ist unantastbar.“ (Grundgesetz, Artikel 1).</p>
 <h2 id="standards">Sicherheit und Standards</h2>
 <p>Unsere Werkzeuge beruhen auf offenen, veröffentlichten Standards. Wir sagen genau, welche, und wie weit wir sind. Nichts davon ist eine Zertifizierung.</p>
 <ul>
@@ -607,6 +615,14 @@ PAGES["transparency"] = {
 <li>Les conflits d'intérêts sont déclarés ; rémunérations et frais sont réglementés et documentés.</li>
 <li>En cas de dissolution, le patrimoine restant revient à une institution suisse exonérée d'impôt ayant un but identique ou similaire.</li>
 </ul>
+<h2 id="record">Registre public</h2>
+<p>Tout ce que nous publions et modifions est consigné publiquement, comme du code : <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<ul>
+<li>Chaque modification arrive par une pull request, avec sa raison, et reste visible, qu'elle soit acceptée ou non.</li>
+<li>Rien n'est réécrit. Les erreurs sont corrigées en ajoutant une correction (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Les candidats aux futurs protocoles et infrastructures sont proposés de la même manière, avec des cas de test.</li>
+</ul>
+<p>Le but remonte à 2015 et à Decipial, un ensemble de principes décentralisés. Les méthodes et les technologies ont changé, le but non : rendre l'information, y compris l'information protégée, accessible à chaque personne et la garder. « La dignité de l'être humain est intangible. » (Loi fondamentale allemande, article 1).</p>
 <h2 id="standards">Sécurité et normes</h2>
 <p>Nos outils reposent sur des normes ouvertes et publiées. Nous disons exactement lesquelles, et où nous en sommes. Rien de ceci n'est une certification.</p>
 <ul>
@@ -622,6 +638,14 @@ PAGES["transparency"] = {
 <li>I conflitti di interesse sono dichiarati; retribuzioni e spese sono regolamentate e documentate.</li>
 <li>In caso di scioglimento il patrimonio residuo va a un'istituzione svizzera esente da imposte con scopo uguale o simile.</li>
 </ul>
+<h2 id="record">Registro pubblico</h2>
+<p>Tutto ciò che pubblichiamo e modifichiamo è registrato pubblicamente, come il codice: <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<ul>
+<li>Ogni modifica arriva come pull request, con il suo motivo, e resta visibile, che sia accolta o no.</li>
+<li>Nulla viene riscritto. Gli errori si correggono aggiungendo una correzione (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>I candidati per futuri protocolli e infrastrutture sono proposti allo stesso modo, con casi di test.</li>
+</ul>
+<p>Lo scopo risale al 2015 e a Decipial, un insieme di principi decentralizzati. Metodi e tecnologie sono cambiati, lo scopo no: rendere l'informazione, anche quella protetta, accessibile a ogni persona e custodirla. «La dignità dell'uomo è intangibile.» (Legge fondamentale tedesca, articolo 1).</p>
 <h2 id="standards">Sicurezza e standard</h2>
 <p>I nostri strumenti si basano su standard aperti e pubblicati. Diciamo esattamente quali, e a che punto siamo. Nulla di ciò è una certificazione.</p>
 <ul>
@@ -637,6 +661,14 @@ PAGES["transparency"] = {
 <li>Conflicts of interest are disclosed; remuneration and expenses are regulated and documented.</li>
 <li>On dissolution, remaining assets go to a tax-exempt Swiss institution with the same or a similar purpose.</li>
 </ul>
+<h2 id="record">Public record</h2>
+<p>Everything we publish and change is recorded in public, like code: <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<ul>
+<li>Every change comes as a pull request, with its reason, and stays visible whether it is accepted or not.</li>
+<li>Nothing is rewritten. Mistakes are corrected by adding a correction (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Candidates for future protocols and infrastructures are proposed the same way, with test cases.</li>
+</ul>
+<p>The aim goes back to 2015 and Decipial, a set of decentralised principles. Methods and technologies have changed, the aim has not: to make information, including protected information, accessible to every person and to guard it. "Human dignity shall be inviolable." (German Basic Law, Article 1).</p>
 <h2 id="standards">Security and standards</h2>
 <p>Our tools build on open, published standards. We say exactly which ones, and how far we are. Nothing here is a certification.</p>
 <ul>
