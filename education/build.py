@@ -63,6 +63,9 @@ li{margin:6px 0}
 .item{border-bottom:1px solid var(--line);padding:8px 0}.item p{margin:0 0 6px}.item .btn.on{background:var(--acc);color:#fff;border-color:var(--acc)}
 .item .ok{color:#067647;font-weight:700}.item .no{color:var(--warn);font-weight:700}
 .mods{display:grid;gap:14px;margin-top:20px}.mods a.card{display:block;text-decoration:none;color:var(--ink)}
+.tbl{overflow-x:auto;margin:12px 0}table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{font-weight:600}td:first-child{white-space:nowrap}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em}
 footer{border-top:1px solid var(--line);margin-top:48px;padding-top:16px;color:var(--muted);font-size:14px}
 """
 
@@ -143,6 +146,57 @@ def lessons_index(lang):
     return page("lessons", lang, body)
 
 
+def md_inline(t):
+    t = html.escape(t, quote=False)
+    t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+    t = re.sub(r"\*(.+?)\*", r"<i>\1</i>", t)
+    t = re.sub(r"`(.+?)`", r"<code>\1</code>", t)
+    return re.sub(r"(https://[^\s|)<]+)", r'<a href="\1">\1</a>', t)
+
+
+def md_to_html(md):
+    out, lines, i = [], md.splitlines(), 0
+    while i < len(lines):
+        l = lines[i]
+        if l.startswith("# "):
+            out.append(f"<h1>{md_inline(l[2:])}</h1>")
+        elif l.startswith("## "):
+            out.append(f"<h2>{md_inline(l[3:])}</h2>")
+        elif l.startswith("|"):
+            rows = []
+            while i < len(lines) and lines[i].startswith("|"):
+                if not re.match(r"^\|[-| ]+\|$", lines[i]):
+                    rows.append([c.strip() for c in lines[i].strip("|").split("|")])
+                i += 1
+            head = "".join(f"<th>{md_inline(c)}</th>" for c in rows[0])
+            body = "".join("<tr>" + "".join(f"<td>{md_inline(c)}</td>" for c in r) + "</tr>" for r in rows[1:])
+            out.append(f'<div class="tbl"><table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>')
+            continue
+        elif re.match(r"^\d+\. ", l):
+            items = []
+            while i < len(lines) and re.match(r"^\d+\. ", lines[i]):
+                items.append("<li>" + md_inline(re.sub(r"^\d+\. ", "", lines[i])) + "</li>")
+                i += 1
+            out.append("<ol>" + "".join(items) + "</ol>")
+            continue
+        elif l.strip():
+            out.append(f"<p>{md_inline(l)}</p>")
+        i += 1
+    return "\n".join(out)
+
+
+def history_page():
+    body = md_to_html((ROOT / "history" / "REGISTER.md").read_text(encoding="utf-8"))
+    body = body.replace("<h1>", '<p class="kicker">Gravit Education · History</p><h1>', 1)
+    first_p = re.search(r"<p>(.*?)</p>", body).group(0)
+    body = body.replace(first_p, first_p.replace("<p>", '<p class="lead">', 1), 1)
+    body += ('<p class="note">Source: <a href="https://github.com/gon-foundation/gravit-world/blob/main/education/history/REGISTER.md">REGISTER.md</a>. '
+             'First record of 9 November 2026 with an OpenTimestamps proof: '
+             '<a href="https://github.com/gon-foundation/gravit-world/tree/main/education/history/evidence-2026-11-09">evidence-2026-11-09</a>.</p>'
+             '<p class="next"><a href="/manifest/en/">Purpose, values, integrity</a> · <a href="/lessons/en/">All modules</a></p>')
+    return page("history", "en", body).replace('<nav aria-label="Language">', '<nav aria-label="Language" hidden>')
+
+
 if __name__ == "__main__":
     TITLES.update({s: {l: title_of(n, l)[0] for l in LANGS} for s, n in PAGES.items()})
     shutil.rmtree(OUT, ignore_errors=True)
@@ -158,4 +212,6 @@ if __name__ == "__main__":
         d.mkdir(parents=True)
         (d / "index.html").write_text(lessons_index(lang), encoding="utf-8")
     (OUT / "lessons" / "index.html").write_text(chooser("lessons"), encoding="utf-8")
+    (OUT / "history").mkdir()
+    (OUT / "history" / "index.html").write_text(history_page(), encoding="utf-8")
     print("\n".join(str(p.relative_to(OUT)) for p in sorted(OUT.rglob("index.html"))))
