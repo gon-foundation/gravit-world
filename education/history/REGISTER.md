@@ -8,7 +8,8 @@ Draft 0.2, 9 November 2026. Maintained by the Gravit Open Network Foundation.
 
 | Date | Event | Source |
 |---|---|---|
-| 2015 | Decipial Foundation, six decentralized principles | https://decipial.org |
+| 2015 | Decipial Foundation founded (stated; founding document to be added) | https://decipial.org |
+| 2019-11-19 | Six decentralized principles published on decipial.org (earliest archived copy) | https://web.archive.org/web/20191119181306/https://decipial.org/ |
 | 2026-03-17 | gravit-research: research, drafts, simulations | GitHub repository creation date |
 | 2026-04-24 | gravit-dwf-poc (capital markets) | GitHub |
 | 2026-05-23 | gravit-epistemic-verifier | GitHub |
