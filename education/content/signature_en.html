@@ -1,0 +1,49 @@
+<p class="kicker">Gravit Education · Module 4 · ages 12 to 15 · 45 minutes</p>
+<h1>What is a digital signature</h1>
+<p class="lead">How can we know that a message was written by this very person, and that not a single letter was changed on the way? That is what a digital signature is for. This lesson shows it at work, right in the browser.</p>
+
+<h2>Learning goals</h2>
+<ul>
+<li>Pupils explain the difference between a private key and a public key.</li>
+<li>Pupils see that changing one letter breaks the signature.</li>
+<li>Pupils understand why anyone can check a signature but only the owner can make it.</li>
+</ul>
+
+<h2>Three ideas</h2>
+<div class="cards">
+<div class="card"><b>Private key</b><p>Like a personal seal. Only the owner has it and never shows it. It makes the signature.</p></div>
+<div class="card"><b>Public key</b><p>Like a sample of the seal that everyone knows. Anyone can use it to check a signature, but nobody can sign with it.</p></div>
+<div class="card"><b>Fingerprint (hash)</b><p>A short number computed from the text. Change one letter, and the fingerprint becomes completely different.</p></div>
+</div>
+
+<h2>Experiment: sign and check</h2>
+<p>Everything happens only in your browser. Nothing is sent anywhere.</p>
+<div class="mock sigdemo" id="sigdemo" data-ok="✔ Signature valid: the text is unchanged and was signed by the key owner." data-bad="✘ Signature does not match: the text was changed after signing." data-need="First create the keys and sign the text." data-nosupport="This browser does not support signing. Try another browser.">
+<p><span class="btn" role="button" tabindex="0" data-act="keys">1. Create keys</span></p>
+<label>Text<textarea id="sigtext" rows="3">Tomorrow's maths test is moved to Friday.</textarea></label>
+<p><span class="btn" role="button" tabindex="0" data-act="sign">2. Sign</span> <span class="btn" role="button" tabindex="0" data-act="verify">3. Check</span></p>
+<p class="mono">Fingerprint of the text: <span id="sighash">…</span></p>
+<p class="mono">Signature: <span id="sigsig">…</span></p>
+</div>
+<p class="hint" id="sigres" aria-live="polite">Press "Create keys", then "Sign", then "Check". Then change one letter in the text and press "Check" again.</p>
+
+<h2>Questions for the class</h2>
+<ol>
+<li>What happened to the fingerprint when you changed one letter?</li>
+<li>If someone intercepts the message and changes "Friday" to "Monday", will the receiver notice?</li>
+<li>Why must the private key never be shown, while the public key can be published?</li>
+</ol>
+
+<h2>Where we meet it</h2>
+<p>Signatures protect phone updates, bank transfers, electronic documents and records of decisions that others check. Anyone with the public key can check a signature. That is its strength: nobody has to take anyone's word for it.</p>
+
+<h2>Lesson plan for teachers</h2>
+<ol>
+<li><b>5 min.</b> Ask the class: in the old days, how did people prove a letter came from the king? (A seal.)</li>
+<li><b>10 min.</b> The three ideas. Draw on the board: the private key signs, the public key checks.</li>
+<li><b>15 min.</b> Experiment in pairs: one signs, the other changes a letter, both check.</li>
+<li><b>10 min.</b> The three questions.</li>
+<li><b>5 min.</b> Summary: "A signature does not say the text is true. It says who signed it and that it was not changed."</li>
+</ol>
+
+<p class="note">The experiment uses the browser's built-in cryptography (ECDSA P-256, SHA-256). Free to use in schools. Send feedback through the <a href="https://gravitopennetwork.org/contact/">contact form</a>.</p>

@@ -1,0 +1,49 @@
+<p class="kicker">Gravit Education · Modul 4 · 7. bis 9. Klasse · 45 Minuten</p>
+<h1>Was ist eine digitale Signatur</h1>
+<p class="lead">Wie weiß man, dass eine Nachricht wirklich von dieser Person stammt und unterwegs kein einziger Buchstabe verändert wurde? Dafür gibt es die digitale Signatur. Diese Stunde zeigt sie in Aktion, direkt im Browser.</p>
+
+<h2>Lernziele</h2>
+<ul>
+<li>Die Schüler erklären den Unterschied zwischen privatem und öffentlichem Schlüssel.</li>
+<li>Die Schüler sehen, dass die Änderung eines Buchstabens die Signatur bricht.</li>
+<li>Die Schüler verstehen, warum jeder eine Signatur prüfen, aber nur der Besitzer sie setzen kann.</li>
+</ul>
+
+<h2>Drei Begriffe</h2>
+<div class="cards">
+<div class="card"><b>Privater Schlüssel</b><p>Wie ein persönliches Siegel. Nur der Besitzer hat ihn und zeigt ihn niemandem. Damit wird signiert.</p></div>
+<div class="card"><b>Öffentlicher Schlüssel</b><p>Wie ein Muster des Siegels, das alle kennen. Damit kann jeder eine Signatur prüfen, aber niemand signieren.</p></div>
+<div class="card"><b>Fingerabdruck (Hash)</b><p>Eine kurze Zahl, aus dem Text berechnet. Ändert man einen Buchstaben, wird der Fingerabdruck völlig anders.</p></div>
+</div>
+
+<h2>Versuch: Signieren und prüfen</h2>
+<p>Alles passiert nur in deinem Browser. Nichts wird irgendwohin gesendet.</p>
+<div class="mock sigdemo" id="sigdemo" data-ok="✔ Signatur gültig: Der Text ist unverändert und vom Schlüsselbesitzer signiert." data-bad="✘ Signatur stimmt nicht: Der Text wurde nach dem Signieren verändert." data-need="Erzeuge zuerst die Schlüssel und signiere den Text." data-nosupport="Dieser Browser unterstützt das Signieren nicht. Versuche einen anderen Browser.">
+<p><span class="btn" role="button" tabindex="0" data-act="keys">1. Schlüssel erzeugen</span></p>
+<label>Text<textarea id="sigtext" rows="3">Die Mathearbeit morgen wird auf Freitag verschoben.</textarea></label>
+<p><span class="btn" role="button" tabindex="0" data-act="sign">2. Signieren</span> <span class="btn" role="button" tabindex="0" data-act="verify">3. Prüfen</span></p>
+<p class="mono">Fingerabdruck des Textes: <span id="sighash">…</span></p>
+<p class="mono">Signatur: <span id="sigsig">…</span></p>
+</div>
+<p class="hint" id="sigres" aria-live="polite">Drücke „Schlüssel erzeugen“, dann „Signieren“, dann „Prüfen“. Ändere danach einen Buchstaben im Text und drücke erneut „Prüfen“.</p>
+
+<h2>Fragen an die Klasse</h2>
+<ol>
+<li>Was ist mit dem Fingerabdruck passiert, als du einen Buchstaben geändert hast?</li>
+<li>Wenn jemand die Nachricht abfängt und „Freitag“ in „Montag“ ändert, bemerkt es der Empfänger?</li>
+<li>Warum darf der private Schlüssel nie gezeigt werden, der öffentliche aber veröffentlicht werden?</li>
+</ol>
+
+<h2>Wo wir ihr begegnen</h2>
+<p>Signaturen schützen Handy-Updates, Banküberweisungen, elektronische Dokumente und Aufzeichnungen von Entscheidungen, die andere prüfen. Jeder mit dem öffentlichen Schlüssel kann eine Signatur prüfen. Das ist ihre Stärke: Niemand muss jemandem aufs Wort glauben.</p>
+
+<h2>Stundenablauf für Lehrkräfte</h2>
+<ol>
+<li><b>5 Min.</b> Frage an die Klasse: Wie bewies man früher, dass ein Brief vom König kam? (Ein Siegel.)</li>
+<li><b>10 Min.</b> Die drei Begriffe. An die Tafel zeichnen: Der private Schlüssel signiert, der öffentliche prüft.</li>
+<li><b>15 Min.</b> Versuch zu zweit: Einer signiert, der andere ändert einen Buchstaben, beide prüfen.</li>
+<li><b>10 Min.</b> Die drei Fragen.</li>
+<li><b>5 Min.</b> Zusammenfassung: „Eine Signatur sagt nicht, dass der Text wahr ist. Sie sagt, wer ihn signiert hat und dass er nicht verändert wurde.“</li>
+</ol>
+
+<p class="note">Der Versuch nutzt die im Browser eingebaute Kryptografie (ECDSA P-256, SHA-256). Frei für den Einsatz in Schulen. Rückmeldungen bitte über das <a href="https://gravitopennetwork.org/contact/">Kontaktformular</a>.</p>
