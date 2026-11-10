@@ -13,9 +13,11 @@ Draft 0.2, 9 November 2026. Maintained by the Gravit Open Network Foundation.
 | 2026-04-24 | gravit-dwf-poc (capital markets) | GitHub |
 | 2026-05-23 | gravit-epistemic-verifier | GitHub |
 | 2026-05-30 | gravit-core, gravit-spec, partner proofs of concept | GitHub |
+| 2026-06-17 | agoranet.work registered; first version of Agora published (archived copy of 5 July 2026) | WHOIS; https://agoranet.work/archive/2026-07-05/ |
 | 2026-06-25 | gravit-grover | GitHub |
 | 2026-07-13 | graviteron: proposed unit of verifiable trust | GitHub |
 | 2026-10-09 | verifier: reference implementation in Python and Rust | GitHub |
+| 2026-10-13 | Agora relaunched as a public square for checking claims (an independent platform, not a Gravit product) | https://agoranet.work |
 | 2026-10-13 | history-keeper, gravit-verifier-service | GitHub |
 | 2026-11-01 | draft-gravit-graviteron-00 at the IETF | IETF Datatracker |
 | 2026-11-07 | 100 million cases, Python and Rust, zero differences | verifier/reports/difftest-2026-11-07 |
