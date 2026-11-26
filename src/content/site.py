@@ -414,10 +414,11 @@ LINKEDIN = {  # the Foundation's LinkedIn posts (tracking parameters removed)
 }
 DRAFTS = [
     # (date, title, name, current rev, all revs oldest first, {rev: {label: url}} parallel publications)
-    ("2026-10-23", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "11",
-     ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"],
+    ("2026-11-02", "GEVP – Gravit Epistemic Verification Protocol", "draft-gravit-gevp", "12",
+     ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
      {"04": {"LinkedIn": LINKEDIN["gevp-04"]}, "06": {"LinkedIn": LINKEDIN["gevp-06"]},
       "07": {"LinkedIn": LINKEDIN["two-track"]}}),
+    ("2026-11-01", "Graviteron: a unit for the weight of evidence (experimental)", "draft-gravit-graviteron", "00", ["00"], {}),
     ("2026-08-09", "VEDS – Verifiable Epistemic Decision Standard", "draft-gravit-verifiable-epistemic-decision", "00",
      ["00"], {"00": {"LinkedIn": LINKEDIN["two-track"]}}),
     ("2026-07-21", "VCP – Verifiable Convergence Protocol (superseded: renamed GEVP to avoid a name collision with draft-kamimura-scitt-vcp)", "draft-gravit-vcp", "01", ["00", "01"], {}),
@@ -469,6 +470,74 @@ PAGES["publications"] = {
         + f"\n<h2>{CODE_TEXT[l]}</h2>\n<ul>" + "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in CODE) + "</ul>"
         for l in LANGS},
 }
+
+VR = "https://github.com/gon-foundation/verifier"
+def L(*pairs): return " · ".join(f'<a href="{u}">{t}</a>' for t, u in pairs)
+NEW = [
+ ("2026-11-25",
+  {"de": "Gravit Verifier: ehrlichere Belege", "fr": "Gravit Verifier : des reçus plus honnêtes",
+   "it": "Gravit Verifier: ricevute più oneste", "en": "Gravit Verifier: more honest receipts"},
+  {"de": "Jede Quittung des Dienstes nennt jetzt signiert, aus welchem Register der Prüfer stammt: Testregister, eigenes Register oder keines (registry_status). Die Seite sagt offen, was ein Beleg zeigt und was nicht: Er macht jede spätere Änderung sichtbar, beweist aber nicht, dass eine Aussage wahr ist. Stand heute: Testschlüssel, noch keine Kunden im Produktivbetrieb.",
+   "fr": "Chaque reçu du service indique désormais, sous signature, de quel registre provient le vérificateur : registre de test, registre propre ou aucun (registry_status). Le site dit clairement ce qu'un reçu montre et ce qu'il ne montre pas : il rend visible toute modification ultérieure, mais ne prouve pas qu'une affirmation est vraie. État actuel : clés de test, pas encore de clients en production.",
+   "it": "Ogni ricevuta del servizio indica ora, firmato, da quale registro proviene il verificatore: registro di test, registro proprio o nessuno (registry_status). Il sito dice chiaramente cosa mostra una ricevuta e cosa no: rende visibile ogni modifica successiva, ma non prova che un'affermazione sia vera. Stato attuale: chiavi di test, ancora nessun cliente in produzione.",
+   "en": "Every receipt from the service now states, signed, which registry the verifier comes from: test registry, own registry or none (registry_status). The site says plainly what a receipt shows and what it does not: it makes any later change visible, but it does not prove that a claim is true. Status today: test keys, no customers in production yet."},
+  L(("gravitverifier.space", "https://gravitverifier.space/"))),
+ ("2026-11-14",
+  {"de": "Wiederholung auf einer zweiten Maschine: 10 Millionen Fälle, alle gleich", "fr": "Nouvelle exécution sur une seconde machine : 10 millions de cas, tous identiques",
+   "it": "Ripetizione su una seconda macchina: 10 milioni di casi, tutti identici", "en": "Re-run on a second machine: 10 million cases, all identical"},
+  {"de": "Jeder zehnte Seed des Laufs vom 9. bis 10. November wurde auf einem Cloud-Server in Genf wiederholt, bei einem anderen Anbieter, mit neuerem Python und Rust, aus einem frischen Klon. 1000 von 1000 Seed-Berichten stimmen mit den veröffentlichten überein. Die Ergebnisse hängen also nicht von der ursprünglichen Maschine ab. Eine Wiederholung durch dasselbe Team, keine unabhängige Prüfung durch Dritte.",
+   "fr": "Une graine sur dix de l'exécution des 9 et 10 novembre a été rejouée sur un serveur cloud à Genève, chez un autre fournisseur, avec des versions plus récentes de Python et de Rust, à partir d'un clone neuf. 1000 rapports de graine sur 1000 sont identiques aux rapports publiés. Les résultats ne dépendent donc pas de la machine d'origine. Une nouvelle exécution par la même équipe, pas une revue indépendante.",
+   "it": "Un seed su dieci dell'esecuzione del 9 e 10 novembre è stato ripetuto su un server cloud a Ginevra, presso un altro fornitore, con Python e Rust più recenti, da un clone nuovo. 1000 report di seed su 1000 coincidono con quelli pubblicati. I risultati quindi non dipendono dalla macchina originale. Una ripetizione dello stesso team, non una verifica indipendente di terzi.",
+   "en": "Every tenth seed of the run of 9 to 10 November was repeated on a cloud server in Geneva, at another provider, with newer Python and Rust, from a fresh clone. 1000 of 1000 seed reports match the published ones. The results therefore do not depend on the original machine. A re-run by the same team, not an independent third-party review."},
+  L(("rerun-2026-11-14", VR + "/tree/main/reports/rerun-2026-11-14"))),
+ ("2026-11-10",
+  {"de": "Zweiter Lauf: 100 Millionen Fälle mit gezielt manipulierten Eingaben", "fr": "Deuxième exécution : 100 millions de cas avec des entrées délibérément manipulées",
+   "it": "Seconda esecuzione: 100 milioni di casi con input manipolati di proposito", "en": "Second run: 100 million cases with deliberately manipulated input"},
+  {"de": "Die Referenzimplementierung in Python und die Portierung in Rust entschieden erneut 100.000.000 von 100.000.000 Fällen identisch, diesmal überwiegend mit Eingaben ausserhalb der Testvektoren: falsche JSON-Typen und Extremwerte, fehlende oder unbekannte Felder, grosse Mengen von Belegen und manipulierte Ed25519-Signaturen. Kein Absturz, kein Fall, in dem nur eine Seite die Eingabe ablehnte. Alle Daten sind veröffentlicht; jeder Teil lässt sich wiederholen.",
+   "fr": "L'implémentation de référence en Python et le portage en Rust ont de nouveau décidé 100 000 000 de cas sur 100 000 000 de façon identique, cette fois surtout avec des entrées hors des vecteurs de test : mauvais types JSON et valeurs extrêmes, champs manquants ou inconnus, grands ensembles de preuves et signatures Ed25519 manipulées. Aucun plantage, aucun cas où un seul côté a rejeté l'entrée. Toutes les données sont publiées ; chaque partie peut être rejouée.",
+   "it": "L'implementazione di riferimento in Python e il porting in Rust hanno di nuovo deciso in modo identico 100.000.000 di casi su 100.000.000, questa volta soprattutto con input fuori dai vettori di test: tipi JSON errati e valori estremi, campi mancanti o sconosciuti, grandi insiemi di prove e firme Ed25519 manipolate. Nessun crash, nessun caso in cui un solo lato ha rifiutato l'input. Tutti i dati sono pubblicati; ogni parte si può ripetere.",
+   "en": "The Python reference implementation and the Rust port again decided 100,000,000 of 100,000,000 cases identically, this time mostly with input outside the test vectors: wrong JSON types and extreme values, missing or unknown fields, large sets of records and manipulated Ed25519 signatures. No crash, no case in which only one side rejected the input. All data is published; any part can be repeated."},
+  L(("difftest-ext-2026-11-10", VR + "/tree/main/reports/difftest-ext-2026-11-10"))),
+ ("2026-11-09",
+  {"de": "gravit.world: Manifest und vier Lektionen", "fr": "gravit.world : manifeste et quatre leçons",
+   "it": "gravit.world: manifesto e quattro lezioni", "en": "gravit.world: manifesto and four lessons"},
+  {"de": "Gravit Education beginnt auf gravit.world: ein Manifest (Zweck, Werte, Integrität) und vier kurze Lektionen über Vertrauen und Prüfung (Knöpfe, Behauptungen, Daten, Signatur), für alle verständlich, ohne Vorkenntnisse.",
+   "fr": "Gravit Education commence sur gravit.world : un manifeste (raison d'être, valeurs, intégrité) et quatre courtes leçons sur la confiance et la vérification (boutons, affirmations, données, signature), compréhensibles par tous, sans connaissances préalables.",
+   "it": "Gravit Education inizia su gravit.world: un manifesto (scopo, valori, integrità) e quattro brevi lezioni su fiducia e verifica (pulsanti, affermazioni, dati, firma), comprensibili a tutti, senza conoscenze preliminari.",
+   "en": "Gravit Education starts on gravit.world: a manifesto (purpose, values, integrity) and four short lessons on trust and checking (buttons, claims, data, signature), for everyone, no prior knowledge needed."},
+  L(("Manifest", "https://gravit.world/manifest/"), ("Lessons", "https://gravit.world/lessons/"))),
+ ("2026-11-07",
+  {"de": "100 Millionen Fälle: Python und Rust entscheiden identisch", "fr": "100 millions de cas : Python et Rust décident à l'identique",
+   "it": "100 milioni di casi: Python e Rust decidono in modo identico", "en": "100 million cases: Python and Rust decide identically"},
+  {"de": "Vom 6. bis 7. November entschieden die Referenzimplementierung in Python und die Portierung in Rust 100.000.000 Fälle, jeweils ein Testvektor mit ein bis vier zufälligen Veränderungen. Alle 100.000.000 Entscheidungen sind identisch, einschliesslich decision_id; alle acht Ergebnisklassen kommen vor. Jeder Seed lässt sich mit einem Befehl wiederholen.",
+   "fr": "Les 6 et 7 novembre, l'implémentation de référence en Python et le portage en Rust ont décidé 100 000 000 de cas, chacun un vecteur de test avec une à quatre modifications aléatoires. Les 100 000 000 de décisions sont identiques, decision_id compris ; les huit classes de résultat apparaissent toutes. Chaque graine peut être rejouée en une commande.",
+   "it": "Il 6 e 7 novembre l'implementazione di riferimento in Python e il porting in Rust hanno deciso 100.000.000 di casi, ciascuno un vettore di test con da una a quattro modifiche casuali. Tutte le 100.000.000 decisioni sono identiche, decision_id compreso; compaiono tutte e otto le classi di risultato. Ogni seed si ripete con un solo comando.",
+   "en": "On 6 to 7 November the Python reference implementation and the Rust port decided 100,000,000 cases, each a test vector with one to four random changes. All 100,000,000 decisions are identical, decision_id included; all eight outcome classes occur. Any seed can be repeated with one command."},
+  L(("difftest-2026-11-07", VR + "/tree/main/reports/difftest-2026-11-07"))),
+ ("2026-11-02",
+  {"de": "GEVP-12 veröffentlicht: eine bekannte Grenze offen benannt", "fr": "Publication de GEVP-12 : une limite connue nommée ouvertement",
+   "it": "Pubblicato GEVP-12: un limite noto dichiarato apertamente", "en": "GEVP-12 published: a known limit stated openly"},
+  {"de": "Revision 12 benennt in den Sicherheitsbetrachtungen eine Grenze: Die Herkunft eines Belegs ist selbst angegeben; wer eine Quelle unter neuer Herkunft weitergibt, erzeugt scheinbar eine zweite unabhängige Quelle. Operatoren legen deshalb ihre vorgelagerten Quellen offen. Der Stand der Implementierung ist auf Version 0.7.0 mit 56 Testvektoren aktualisiert, zwei davon für genau diese Grenze.",
+   "fr": "La révision 12 nomme une limite dans les considérations de sécurité : la provenance d'une preuve est auto-déclarée ; qui relaie une source sous une nouvelle provenance crée une apparente seconde source indépendante. Les opérateurs déclarent donc leurs sources en amont. L'état de l'implémentation est mis à jour vers la version 0.7.0 avec 56 vecteurs de test, dont deux pour cette limite.",
+   "it": "La revisione 12 dichiara un limite nelle considerazioni di sicurezza: la provenienza di una prova è autodichiarata; chi inoltra una fonte con una nuova provenienza crea in apparenza una seconda fonte indipendente. Gli operatori dichiarano quindi le loro fonti a monte. Lo stato dell'implementazione è aggiornato alla versione 0.7.0 con 56 vettori di test, due dei quali per questo limite.",
+   "en": "Revision 12 names a limit in its security considerations: the provenance of a record is self-reported; whoever relays a source under a new provenance creates an apparent second independent source. Operators therefore declare their upstream sources. Implementation status is updated to release 0.7.0 with 56 test vectors, two of them for this limit."},
+  draft_links("draft-gravit-gevp", "12", {})),
+ ("2026-11-01",
+  {"de": "Graviteron-00 veröffentlicht: eine Einheit für das Gewicht von Belegen", "fr": "Publication de Graviteron-00 : une unité pour le poids des preuves",
+   "it": "Pubblicato Graviteron-00: un'unità per il peso delle prove", "en": "Graviteron-00 published: a unit for the weight of evidence"},
+  {"de": "Der Internet-Draft definiert das Graviteron: wie viel signierte, unabhängige Evidenz eine Behauptung stützt oder ihr widerspricht, als Gewicht der Evidenz nach Turing und Good in Dezibans. Er beschreibt die Berechnung, acht Eigenschaften, die jede konforme Implementierung erfüllen muss, ein Anzeigeformat, das nie eine nackte Zahl ist, und Testvektoren. Eine Entscheidungsregel legt er nicht fest. Experimentell.",
+   "fr": "L'Internet-Draft définit le Graviteron : combien de preuves signées et indépendantes soutiennent ou contredisent une affirmation, exprimé comme poids de la preuve selon Turing et Good, en décibans. Il décrit le calcul, huit propriétés que toute implémentation conforme doit respecter, un format de lecture qui n'est jamais un nombre nu et des vecteurs de test. Il ne fixe pas de règle de décision. Expérimental.",
+   "it": "L'Internet-Draft definisce il Graviteron: quante prove firmate e indipendenti sostengono o contraddicono un'affermazione, espresso come peso dell'evidenza secondo Turing e Good, in deciban. Descrive il calcolo, otto proprietà che ogni implementazione conforme deve rispettare, un formato di lettura che non è mai un numero nudo e vettori di test. Non stabilisce una regola di decisione. Sperimentale.",
+   "en": "The Internet-Draft defines the Graviteron: how much signed, independent evidence supports or contradicts a claim, as the weight of evidence of Turing and Good, in decibans. It specifies the computation, eight properties every conforming implementation must satisfy, a reading format that is never a bare number, and test vectors. It does not define a decision rule. Experimental."},
+  draft_links("draft-gravit-graviteron", "00", {})),
+ ("2026-10-25",
+  {"de": "Gravit Verifier 0.7.0", "fr": "Gravit Verifier 0.7.0", "it": "Gravit Verifier 0.7.0", "en": "Gravit Verifier 0.7.0"},
+  {"de": "Version 0.7.0 setzt die Befunde einer externen Prüfung von 0.6.0 um: ein integrity_hash je Verified Fact, ausgeschlossene Belege zählen nie, decision_id nach RFC 8785 (JCS), der Schwellenwert wird nie stillschweigend umgewandelt. 54 Testvektoren; Python und Rust stimmen überein.",
+   "fr": "La version 0.7.0 applique les constats d'une revue externe de 0.6.0 : un integrity_hash par Verified Fact, les preuves exclues ne comptent jamais, decision_id selon la RFC 8785 (JCS), le seuil n'est jamais converti en silence. 54 vecteurs de test ; Python et Rust concordent.",
+   "it": "La versione 0.7.0 applica i rilievi di una revisione esterna della 0.6.0: un integrity_hash per Verified Fact, le prove escluse non contano mai, decision_id secondo RFC 8785 (JCS), la soglia non viene mai convertita in silenzio. 54 vettori di test; Python e Rust concordano.",
+   "en": "Release 0.7.0 applies the findings of an external review of 0.6.0: one integrity_hash per Verified Fact, excluded records never count, decision_id over RFC 8785 (JCS), the threshold is never silently coerced. 54 test vectors; Python and Rust agree."},
+  L(("v0.7.0", VR + "/releases/tag/v0.7.0"))),
+]
 
 # News / activities: newest first. Add entries here; they appear on News and Home.
 NEWS = [
@@ -849,3 +918,6 @@ PRINCIPLE = {
                    "Because we declare it, we are bound to deliver it.",
     },
 }
+
+# Newest first, whatever the order of entry.
+NEWS = sorted(NEW + NEWS, key=lambda e: e[0], reverse=True)
