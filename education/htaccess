@@ -2,5 +2,5 @@
 # Since 9 Nov 2026 gravit.world also serves Gravit Education: /manifest/ and /lessons/ (source: education/ in this repository).
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/\.well-known/
-RewriteCond %{REQUEST_URI} !^/(manifest|lessons)(/|$)
+RewriteCond %{REQUEST_URI} !^/(manifest|lessons|history)(/|$)
 RewriteRule ^(.*)$ https://gravitopennetwork.org/$1 [R=301,L]
