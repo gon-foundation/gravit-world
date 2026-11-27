@@ -60,7 +60,7 @@ FAMILY = {  # same strip as on gravit.space and gravitverifier.space; this site 
 def family(lang):
     t = FAMILY.get(lang, FAMILY["en"])
     links = [("https://gon.foundation", t[1], True), ("https://gravit.space", t[2], False),
-             ("https://gravitverifier.space", t[3], False), ("https://gravitpath.world", t[6], False), ("https://github.com/gravit-open-network-foundation", t[4], False),
+             ("https://gravitverifier.space", t[3], False), ("https://gravitpath.world", t[6], False), ("https://github.com/gon-foundation", t[4], False),
              ("https://datatracker.ietf.org/doc/draft-gravit-gevp/", t[5], False)]
     items = "".join(f'<a href="{u}"{" aria-current=\"true\"" if cur else ""}>{n}</a>' for u, n, cur in links)
     return f'<div class="family" aria-label="{t[0]}"><span class="family-label">{t[0]}</span>{items}</div>'
