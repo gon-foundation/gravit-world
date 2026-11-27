@@ -36,6 +36,9 @@ BOARD = [
     ("schwarzstein", "Walter Schwarzstein", {
         "de": "Vizepräsident, Mitglied des Vorstands", "fr": "Vice-président, membre du comité",
         "it": "Vicepresidente, membro del comitato direttivo", "en": "Vice President, Board Member"}),
+    ("heinrich", "Johannes Heinrich", {
+        "de": "Vizepräsident, Mitglied des Vorstands", "fr": "Vice-président, membre du comité",
+        "it": "Vicepresidente, membro del comitato direttivo", "en": "Vice President, Board Member"}),
 ]
 
 # ── navigation ────────────────────────────────────────────────────────────
@@ -966,3 +969,17 @@ NEWS.insert(0, ("2026-11-27",
 TECH_NEWS_NOTE = {"de": "Technische Meldungen (Releases, Standards, Prüfläufe):", "fr": "Actualités techniques (versions, standards, essais) :",
                   "it": "Notizie tecniche (release, standard, esecuzioni):", "en": "Technical news (releases, standards, runs):"}
 PAGES["news"]["body"] = {l: "{news}" + f'\n<p class="note">{TECH_NEWS_NOTE[l]} <a href="https://gravitopennetwork.org/news/">gravitopennetwork.org/news</a></p>' for l in LANGS}
+
+# ── Home = the Gravit triad (Alex, 27 Nov 2026); intro and principle move to the Foundation page ──
+TRIAD = [
+    ("open-network", "Gravit Open Network", "Where perception flows", True, "https://gravitopennetwork.org/network/"),
+    ("continuum", "Gravit Continuum", "Where consensus emerges", False, "https://gravitopennetwork.org/continuum/"),
+    ("quantum", "Gravit Quantum", "Where time confirms truth", False, "https://gravitopennetwork.org/quantum/"),
+]
+_principle = {l: (f'<p>{HOME["intro"][l]}</p>\n<section class="principle"><h2>{PRINCIPLE[l]["title"]}</h2>'
+                  f'<p class="principle-lead">{PRINCIPLE[l]["lead"]}</p><p>{PRINCIPLE[l]["body"]}</p>'
+                  f'<p class="principle-truth">{PRINCIPLE[l]["truth"]}</p><blockquote>{PRINCIPLE[l]["quote"]}</blockquote>'
+                  f'<p>{PRINCIPLE[l]["method"]}</p><p class="principle-truth">{PRINCIPLE[l]["verify"]}</p>'
+                  f'<p class="note">{PRINCIPLE[l]["amodei"]}</p><p>{PRINCIPLE[l]["purpose"]}</p></section>\n')
+              for l in LANGS}
+PAGES["foundation"]["body"] = {l: _principle[l] + PAGES["foundation"]["body"][l] for l in LANGS}

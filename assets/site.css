@@ -75,8 +75,8 @@ body::before {
   --phi: 1.618;
   --menu-size: 12px;
   --word-size: calc(var(--menu-size) * var(--phi));
-  --mark-w: 108px;
-  --mark-h: 162px;
+  --mark-w: 132px;
+  --mark-h: 198px;
   --mark-radius: 6px;
   --line-offset: 16px;   /* wordmark + menu sit this much below the mark centre */
 }
@@ -124,11 +124,11 @@ header {
   filter: drop-shadow(0 0 14px rgba(0, 150, 255, 0.35)); }
 .logo:hover .logo-word, .logo:focus-visible .logo-word { text-shadow: 0 0 20px rgba(90, 190, 255, 0.9); }
 @media (max-width: 900px) {
-  :root { --mark-w: 72px; --mark-h: 108px; --menu-size: 11px; --line-offset: 8px; }
+  :root { --mark-w: 88px; --mark-h: 132px; --menu-size: 11px; --line-offset: 8px; }
   header { padding: 16px 24px 0; }
 }
 @media (max-width: 640px) {
-  :root { --mark-w: 58px; --mark-h: 87px; --line-offset: 0px; }
+  :root { --mark-w: 70px; --mark-h: 105px; --line-offset: 0px; }
 }
 @media (prefers-reduced-motion: reduce) { .astra { transition: none; } .logo:hover .astra { transform: none; } }
 
