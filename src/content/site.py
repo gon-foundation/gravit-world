@@ -36,7 +36,7 @@ BOARD = [
     ("schwarzstein", "Walter Schwarzstein", {
         "de": "Vizepräsident, Mitglied des Vorstands", "fr": "Vice-président, membre du comité",
         "it": "Vicepresidente, membro del comitato direttivo", "en": "Vice President, Board Member"}),
-    ("heinrich", "Johannes Heinrich", {
+    ("heinrich", "Johannes Heinrich Blömi", {
         "de": "Vizepräsident, Mitglied des Vorstands", "fr": "Vice-président, membre du comité",
         "it": "Vicepresidente, membro del comitato direttivo", "en": "Vice President, Board Member"}),
 ]
