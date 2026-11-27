@@ -83,8 +83,11 @@ def board_html(root, lang):
     cards = []
     for slug, name, roles in C.BOARD:
         img = f"{root}/assets/img/people/{slug}"
+        photo = (f'<img src="{img}-240.webp" srcset="{img}-240.webp 1x, {img}-480.webp 2x" width="120" height="120" alt="{name}" loading="lazy" decoding="async" />'
+                 if (ROOT / "assets" / "img" / "people" / f"{slug}-240.webp").exists()
+                 else f'<div class="initials" aria-hidden="true">{"".join(p[0] for p in name.replace("Dr. ", "").split()[:2])}</div>')  # until a photo is supplied
         cards.append(f"""<div class="person">
-  <img src="{img}-240.webp" srcset="{img}-240.webp 1x, {img}-480.webp 2x" width="120" height="120" alt="{name}" loading="lazy" decoding="async" />
+  {photo}
   <div class="name">{name}</div><div class="role">{roles[lang]}</div></div>""")
     return '<div class="people">' + "\n".join(cards) + "</div>"
 
@@ -137,7 +140,7 @@ def shell(root, lang, slug, title, description, main, draft):
   <meta name="description" content="{html.escape(description)}" />
   <meta property="og:title" content="{html.escape(title)}" />
   <meta property="og:description" content="{html.escape(description)}" />
-  <meta property="og:image" content="{C.SITE_URL}/assets/img/og.webp" />
+  <meta property="og:image" content="{C.SITE_URL}/assets/img/og.png" />
   <meta property="og:type" content="website" />
 {alternates}
   <link rel="icon" type="image/png" sizes="512x512" href="{root}/android-chrome-512x512.png" />
@@ -152,8 +155,7 @@ def shell(root, lang, slug, title, description, main, draft):
   {banner}
   <header>
     <a class="logo" href="{href(root, lang, None)}" aria-label="Gravit Open Network Foundation">
-      <img class="astra" src="{root}/assets/img/logo-gon-162.webp" srcset="{root}/assets/img/logo-gon-162.webp 1x, {root}/assets/img/logo-gon-324.webp 2x, {root}/assets/img/logo-gon-486.webp 3x" width="108" height="162" alt="" decoding="async" fetchpriority="high" />
-      <span class="logo-word">Gravit</span>
+      <img class="astra" src="{root}/assets/img/logo-gon-162.webp" srcset="{root}/assets/img/logo-gon-162.webp 1x, {root}/assets/img/logo-gon-324.webp 2x, {root}/assets/img/logo-gon-486.webp 3x" width="132" height="198" alt="Gravit Open Network" decoding="async" fetchpriority="high" />
     </a>
     <div class="header-right">
       <nav aria-label="Main"><ul>
@@ -171,32 +173,21 @@ def shell(root, lang, slug, title, description, main, draft):
 
 
 def home(root, lang, draft):
-    tiles = "".join(
-        f'<a class="tile" href="{href(root, lang, s)}"><h2>{C.LABELS[s][lang]}</h2><p>{t[lang]}</p></a>'
-        for s, t in C.HOME["tiles"])
-    main = f"""  <main class="page-main" style="flex-direction:column;align-items:center">
-    <section class="hero">
-      <h1>Gravit Open Network Foundation</h1>
-      <div class="tagline">{C.COMMON["legal_form"][lang]}</div>
-      <p>{C.HOME["intro"][lang]}</p>
-    </section>
-    <section class="content principle" aria-labelledby="principle-title">
-      <h2 id="principle-title">{C.PRINCIPLE[lang]["title"]}</h2>
-      <p class="principle-lead">{C.PRINCIPLE[lang]["lead"]}</p>
-      <p>{C.PRINCIPLE[lang]["body"]}</p>
-      <p class="principle-truth">{C.PRINCIPLE[lang]["truth"]}</p>
-      <blockquote>{C.PRINCIPLE[lang]["quote"]}</blockquote>
-      <p>{C.PRINCIPLE[lang]["method"]}</p>
-      <p class="principle-truth">{C.PRINCIPLE[lang]["verify"]}</p>
-      <p class="note">{C.PRINCIPLE[lang]["amodei"]}</p>
-      <p>{C.PRINCIPLE[lang]["purpose"]}</p>
-    </section>
-    <div class="tiles">{tiles}</div>
-    <section class="content" style="margin-top:28px">
-      <h2 style="margin-top:0">{C.LABELS["news"][lang]}</h2>
-      {news_html(lang, 3)}
-    </section>
-  </main>"""
+    """Logo, menu, the three parts of the Gravit triad, footer (Alex, 27 Nov 2026).
+    The Foundation's introduction and principle are on the Foundation page."""
+    cards = []
+    for i, (slug, title, sub, overlay, url) in enumerate(C.TRIAD):
+        art = f"{root}/assets/img/{slug}"
+        tagline = f'\n          <p class="card-overlay-sub" aria-hidden="true">{sub}</p>' if overlay else ""
+        cards.append(f"""      <a class="card has-art" href="{url}">
+        <div class="card-inner">
+          <h2 class="visually-hidden">{title}: {sub}</h2>
+          <img class="card-art" src="{art}-480.webp" srcset="{art}-480.webp 480w, {art}-960.webp 960w"
+               sizes="(max-width: 900px) 90vw, 33vw" width="480" height="720" alt="{title}. {sub}."
+               {'fetchpriority="high"' if i == 0 else 'loading="lazy"'} decoding="async" />{tagline}
+        </div>
+      </a>""")
+    main = '  <main>\n    <div class="portal-row equal">\n' + "\n".join(cards) + "\n    </div>\n  </main>"
     return shell(root, lang, None, "Gravit Open Network Foundation", C.HOME["intro"][lang], main, draft)
 
 
