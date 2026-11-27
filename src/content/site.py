@@ -310,7 +310,7 @@ becomes a verifiable state. The <strong>Gravit Quantum</strong> layer enables hi
 integrated computational models.</p>
 <p>Truth is not declared but continuously validated. Gravit is designed with a people-first constraint: every decision
 and knowledge state can be traced and verified. The Gravit Open Network is currently in testnet, with mainnet planned
-for Q4 2026.</p>"""
+for Q4 2026. <em>(Update 27 November 2026: the mainnet date is now 12 December 2026.)</em></p>"""
 
 OVERVIEW = {
     "en": OVERVIEW_EN,
@@ -328,7 +328,7 @@ müssen widersprüchlichen Bedingungen standhalten. Nur Wissen, das unter Druck 
 Zustand. <strong>Gravit Quantum</strong> ermöglicht hochdimensionales Schliessen durch integrierte Rechenmodelle.</p>
 <p>Wahrheit wird nicht erklärt, sondern fortlaufend überprüft. Gravit folgt dem Grundsatz «der Mensch zuerst»: Jede
 Entscheidung und jeder Wissenszustand ist nachvollziehbar und überprüfbar. Das Gravit Open Network befindet sich im
-Testnetz; das Hauptnetz ist für das vierte Quartal 2026 geplant.</p>""",
+Testnetz; das Hauptnetz ist für das vierte Quartal 2026 geplant. <em>(Stand 27. November 2026: Das Hauptnetz ist jetzt für den 12. Dezember 2026 geplant.)</em></p>""",
     "fr": """
 <p>Gravit Open Network est un système distribué conçu pour établir une confiance vérifiable et une clarté sémantique là
 où l'intelligence artificielle opère de manière autonome et à grande échelle.</p>
@@ -343,7 +343,7 @@ chacun doit résister à des conditions adverses. Seule une connaissance qui res
 vérifiable. <strong>Gravit Quantum</strong> permet un raisonnement de haute dimension par des modèles de calcul intégrés.</p>
 <p>La vérité n'est pas déclarée, elle est validée en continu. Gravit place l'humain au premier plan : chaque décision et
 chaque état de connaissance sont traçables et vérifiables. Le Gravit Open Network est actuellement en testnet ; le
-mainnet est prévu pour le quatrième trimestre 2026.</p>""",
+mainnet est prévu pour le quatrième trimestre 2026. <em>(Mise à jour du 27 novembre 2026 : le mainnet est désormais prévu pour le 12 décembre 2026.)</em></p>""",
     "it": """
 <p>Gravit Open Network è un sistema distribuito pensato per creare fiducia verificabile e chiarezza semantica dove
 l'intelligenza artificiale opera in modo autonomo e su larga scala.</p>
@@ -358,7 +358,7 @@ ognuno deve resistere a condizioni avverse. Solo la conoscenza che rimane stabil
 verificabile. <strong>Gravit Quantum</strong> consente un ragionamento ad alta dimensionalità tramite modelli di calcolo integrati.</p>
 <p>La verità non viene dichiarata, ma convalidata continuamente. Gravit mette al primo posto le persone: ogni decisione e
 ogni stato di conoscenza sono tracciabili e verificabili. Il Gravit Open Network è attualmente in testnet; la mainnet è
-prevista per il quarto trimestre 2026.</p>""",
+prevista per il quarto trimestre 2026. <em>(Aggiornamento del 27 novembre 2026: la mainnet è ora prevista per il 12 dicembre 2026.)</em></p>""",
 }
 
 PROJECT_LIST = {
@@ -921,3 +921,32 @@ PRINCIPLE = {
 
 # Newest first, whatever the order of entry.
 NEWS = sorted(NEW + NEWS, key=lambda e: e[0], reverse=True)
+
+# ── blog: full texts of what we publish; short items stay in NEWS ─────────
+from content.blog import POSTS  # noqa: E402
+from html import escape as html_escape  # noqa: E402
+
+LABELS["blog"] = {"de": "Blog", "fr": "Blog", "it": "Blog", "en": "Blog"}
+NAV.insert(NAV.index("news") + 1, "blog")
+BLOG_LANG_NOTE = {"de": "Dieser Beitrag ist auf Englisch.", "fr": "Cet article est en anglais.",
+                  "it": "Questo articolo è in inglese.", "en": ""}
+BLOG_INTRO = {
+    "de": "Hier veröffentlichen wir den vollen Text von allem, was wir auf Substack, LinkedIn und X schreiben: Gespräche mit unseren Leserinnen und Lesern, Berichte und Zusammenfassungen. Kurze Meldungen stehen unter Aktuelles.",
+    "fr": "Nous publions ici le texte complet de tout ce que nous écrivons sur Substack, LinkedIn et X : dialogue avec nos lecteurs, rapports et synthèses. Les brèves sont sous Actualités.",
+    "it": "Qui pubblichiamo il testo completo di tutto ciò che scriviamo su Substack, LinkedIn e X: dialogo con chi ci legge, rapporti e sintesi. Le notizie brevi sono in Attualità.",
+    "en": "Here we publish the full text of everything we write on Substack, LinkedIn and X: a conversation with our readers, reports and summaries. Short items are under News.",
+}
+PAGES["blog"] = {
+    "title": LABELS["blog"],
+    "tagline": {"de": "Berichte und Gespräche", "fr": "Rapports et dialogue", "it": "Rapporti e dialogo", "en": "Reports and conversation"},
+    "body": {l: f"<p>{BLOG_INTRO[l]}</p>\n<ul class=\"entries\">" + "".join(
+        f'<li><div class="date">{p["date"]}</div><div class="title"><a href="/{l}/blog/{p["slug"]}/">{html_escape(p["title"])}</a></div><div>{html_escape(p["summary"])}</div></li>'
+        for p in POSTS) + "</ul>" for l in LANGS},
+}
+for _p in POSTS:
+    PAGES[f"blog/{_p['slug']}"] = {
+        "title": {l: _p["title"] for l in LANGS},
+        "tagline": {l: _p["date"] for l in LANGS},
+        "body": {l: (f'<p class="note">{BLOG_LANG_NOTE[l]}</p>\n' if BLOG_LANG_NOTE[l] else "") + _p["html"]
+                 + f'\n<p class="note"><a href="/{l}/blog/">{LABELS["blog"][l]}</a></p>' for l in LANGS},
+    }

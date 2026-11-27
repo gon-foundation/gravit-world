@@ -246,6 +246,11 @@ def main() -> int:
     root = a.base.rstrip("/")
 
     out = {"index.html": ROOT_INDEX.format(root=root)}
+    # /blog/ (also reached from gon.foundation/blog): to the blog in the reader's language
+    out["blog/index.html"] = (ROOT_INDEX.format(root=root)
+                              .replace('+l[i]+"/"', '+l[i]+"/blog/"').replace('"/de/");', '"/de/blog/");')
+                              .replace('/de/">Deutsch', '/de/blog/">Deutsch').replace('/fr/">Fr', '/fr/blog/">Fr')
+                              .replace('/it/">It', '/it/blog/">It').replace('/en/">English', '/en/blog/">English'))
     for lang in C.LANGS:
         out[f"{lang}/index.html"] = home(root, lang, draft)
         for slug in C.PAGES:
