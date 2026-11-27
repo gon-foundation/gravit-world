@@ -950,3 +950,19 @@ for _p in POSTS:
         "body": {l: (f'<p class="note">{BLOG_LANG_NOTE[l]}</p>\n' if BLOG_LANG_NOTE[l] else "") + _p["html"]
                  + f'\n<p class="note"><a href="/{l}/blog/">{LABELS["blog"][l]}</a></p>' for l in LANGS},
     }
+
+# ── 27 Nov 2026: technical news moved to gravitopennetwork.org/news/ ──────
+# Only Foundation news stay here (education, consortium, reports, the Foundation itself).
+FOUNDATION_NEWS_DATES = {"2026-11-09"}
+NEWS = [e for e in NEWS if e[0] in FOUNDATION_NEWS_DATES]
+NEWS.insert(0, ("2026-11-27",
+    {"de": "Zwei Websites: Foundation und Netzwerk", "fr": "Deux sites : la Fondation et le réseau",
+     "it": "Due siti: la Fondazione e la rete", "en": "Two websites: the Foundation and the network"},
+    {"de": "Die Website der Foundation ist jetzt gon.foundation. Das technische Netzwerk mit Mainnet, Dokumentation, SDKs, technischem Blog und technischen Meldungen ist auf gravitopennetwork.org. Alte Adressen leiten weiter.",
+     "fr": "Le site de la Fondation est désormais gon.foundation. Le réseau technique, avec mainnet, documentation, SDK, blog technique et actualités techniques, est sur gravitopennetwork.org. Les anciennes adresses redirigent.",
+     "it": "Il sito della Fondazione è ora gon.foundation. La rete tecnica, con mainnet, documentazione, SDK, blog tecnico e notizie tecniche, è su gravitopennetwork.org. I vecchi indirizzi reindirizzano.",
+     "en": "The Foundation's website is now gon.foundation. The technical network, with mainnet, documentation, SDKs, a technical blog and technical news, is on gravitopennetwork.org. Old addresses redirect."},
+    '<a href="https://gravitopennetwork.org/">gravitopennetwork.org</a> · <a href="https://gravitopennetwork.org/news/">Technical news</a>'))
+TECH_NEWS_NOTE = {"de": "Technische Meldungen (Releases, Standards, Prüfläufe):", "fr": "Actualités techniques (versions, standards, essais) :",
+                  "it": "Notizie tecniche (release, standard, esecuzioni):", "en": "Technical news (releases, standards, runs):"}
+PAGES["news"]["body"] = {l: "{news}" + f'\n<p class="note">{TECH_NEWS_NOTE[l]} <a href="https://gravitopennetwork.org/news/">gravitopennetwork.org/news</a></p>' for l in LANGS}
