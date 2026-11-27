@@ -427,8 +427,8 @@ DRAFTS = [
     ("2026-07-21", "VCP – Verifiable Convergence Protocol (superseded: renamed GEVP to avoid a name collision with draft-kamimura-scitt-vcp)", "draft-gravit-vcp", "01", ["00", "01"], {}),
 ]
 CODE = [
-    ("Gravit Grover", "https://github.com/gravit-open-network-foundation/gravit-grover"),
-    ("Gravit Verifier", "https://github.com/gravit-open-network-foundation/verifier"),
+    ("Gravit Grover", "https://github.com/gon-foundation/gravit-grover"),
+    ("Gravit Verifier", "https://github.com/gon-foundation/verifier"),
 ]
 EARLIER = {"de": "Frühere Fassungen", "fr": "Versions antérieures", "it": "Versioni precedenti", "en": "Earlier versions"}
 CODE_TEXT = {"de": "Quellcode", "fr": "Code source", "it": "Codice sorgente", "en": "Source code"}
@@ -550,7 +550,7 @@ NEWS = [
       "fr": "L'expérience CL-01 revérifie de façon indépendante chaque mise à jour des flux Chainlink ETH/USD et BTC/USD du 20 au 27 octobre 2026, uniquement à partir de données publiques (registre Ethereum, bougies Coinbase) : f+1 signatures d'opérateurs configurés, rapport signé identique à l'événement, médiane, heartbeat, proximité du marché. Résultat : 418 sur 418 confirmées, écart maximal au marché 0,015 %. Des tests de falsification montrent que la vérification sait aussi dire non. Ce n'est pas un audit de Chainlink.",
       "it": "L'esperimento CL-01 riverifica in modo indipendente ogni aggiornamento dei feed Chainlink ETH/USD e BTC/USD dal 20 al 27 ottobre 2026, solo da dati pubblici (registro Ethereum, candele Coinbase): f+1 firme di operatori configurati, report firmato uguale all'evento, mediana, heartbeat, vicinanza al mercato. Risultato: 418 su 418 confermati, scarto massimo dal mercato 0,015 %. I test di manomissione mostrano che la verifica sa anche dire di no. Non è un audit di Chainlink.",
       "en": "Experiment CL-01 independently re-checks every update of the Chainlink ETH/USD and BTC/USD feeds from 20 to 27 October 2026, from public data only (Ethereum ledger, Coinbase candles): f+1 signatures by configured operators, signed report equal to the event, median, heartbeat, closeness to the market. Result: 418 of 418 confirmed, largest distance to the market 0.015 %. Tamper tests show the check can also say no. Not an audit of Chainlink."},
-     '<a href="https://github.com/gravit-open-network-foundation/gravit-chainlink-verification">gravit-chainlink-verification</a>'),
+     '<a href="https://github.com/gon-foundation/gravit-chainlink-verification">gravit-chainlink-verification</a>'),
     ("2026-10-23", {"de": "GEVP-11 veröffentlicht: aufgebaut auf SCITT und COSE Receipts", "fr": "Publication de GEVP-11 : fondé sur SCITT et COSE Receipts",
                     "it": "Pubblicato GEVP-11: basato su SCITT e COSE Receipts", "en": "GEVP-11 published: built on SCITT and COSE Receipts"},
      {"de": "Nach der Veröffentlichung von RFC 9943 (SCITT) und RFC 9942 (COSE Receipts) baut Revision 11 auf diesen Standards auf: Jeder Verifier ist ein Issuer, jeder Beleg ein Signed Statement über das geprüfte Artefakt. Geplante Kodierung: COSE_Sign1 mit CWT Claims (RFC 9597) und Ed25519 (RFC 9864), nur mit bestehenden IANA Registrierungen. Die Kodierung ist beschrieben, noch nicht implementiert.",
@@ -665,10 +665,10 @@ PAGES["transparency"] = {
 <li>Bei Auflösung geht das verbleibende Vermögen an eine steuerbefreite Institution in der Schweiz mit gleichem oder ähnlichem Zweck.</li>
 </ul>
 <h2 id="record">Öffentliches Register</h2>
-<p>Alles, was wir veröffentlichen und ändern, wird öffentlich festgehalten, wie Code: <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<p>Alles, was wir veröffentlichen und ändern, wird öffentlich festgehalten, wie Code: <a href="https://github.com/gon-foundation">github.com/gon-foundation</a>.</p>
 <ul>
 <li>Jede Änderung kommt als Pull Request, mit Begründung, und bleibt sichtbar, ob sie angenommen wird oder nicht.</li>
-<li>Nichts wird umgeschrieben. Fehler werden korrigiert, indem eine Korrektur hinzugefügt wird (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Nichts wird umgeschrieben. Fehler werden korrigiert, indem eine Korrektur hinzugefügt wird (<a href="https://github.com/gon-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
 <li>Kandidaten für künftige Protokolle und Infrastrukturen werden auf demselben Weg vorgeschlagen, mit Testfällen.</li>
 </ul>
 <p>Das Ziel reicht zurück ins Jahr 2015 und zu Decipial, einer Sammlung dezentraler Prinzipien. Methoden und Technologien haben sich verändert, das Ziel nicht: Information und geschützte Information für jeden Menschen zugänglich zu machen und sie zu hüten. „Die Würde des Menschen ist unantastbar.“ (Grundgesetz, Artikel 1).</p>
@@ -688,10 +688,10 @@ PAGES["transparency"] = {
 <li>En cas de dissolution, le patrimoine restant revient à une institution suisse exonérée d'impôt ayant un but identique ou similaire.</li>
 </ul>
 <h2 id="record">Registre public</h2>
-<p>Tout ce que nous publions et modifions est consigné publiquement, comme du code : <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<p>Tout ce que nous publions et modifions est consigné publiquement, comme du code : <a href="https://github.com/gon-foundation">github.com/gon-foundation</a>.</p>
 <ul>
 <li>Chaque modification arrive par une pull request, avec sa raison, et reste visible, qu'elle soit acceptée ou non.</li>
-<li>Rien n'est réécrit. Les erreurs sont corrigées en ajoutant une correction (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Rien n'est réécrit. Les erreurs sont corrigées en ajoutant une correction (<a href="https://github.com/gon-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
 <li>Les candidats aux futurs protocoles et infrastructures sont proposés de la même manière, avec des cas de test.</li>
 </ul>
 <p>Le but remonte à 2015 et à Decipial, un ensemble de principes décentralisés. Les méthodes et les technologies ont changé, le but non : rendre l'information, y compris l'information protégée, accessible à chaque personne et la garder. « La dignité de l'être humain est intangible. » (Loi fondamentale allemande, article 1).</p>
@@ -711,10 +711,10 @@ PAGES["transparency"] = {
 <li>In caso di scioglimento il patrimonio residuo va a un'istituzione svizzera esente da imposte con scopo uguale o simile.</li>
 </ul>
 <h2 id="record">Registro pubblico</h2>
-<p>Tutto ciò che pubblichiamo e modifichiamo è registrato pubblicamente, come il codice: <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<p>Tutto ciò che pubblichiamo e modifichiamo è registrato pubblicamente, come il codice: <a href="https://github.com/gon-foundation">github.com/gon-foundation</a>.</p>
 <ul>
 <li>Ogni modifica arriva come pull request, con il suo motivo, e resta visibile, che sia accolta o no.</li>
-<li>Nulla viene riscritto. Gli errori si correggono aggiungendo una correzione (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Nulla viene riscritto. Gli errori si correggono aggiungendo una correzione (<a href="https://github.com/gon-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
 <li>I candidati per futuri protocolli e infrastrutture sono proposti allo stesso modo, con casi di test.</li>
 </ul>
 <p>Lo scopo risale al 2015 e a Decipial, un insieme di principi decentralizzati. Metodi e tecnologie sono cambiati, lo scopo no: rendere l'informazione, anche quella protetta, accessibile a ogni persona e custodirla. «La dignità dell'uomo è intangibile.» (Legge fondamentale tedesca, articolo 1).</p>
@@ -734,10 +734,10 @@ PAGES["transparency"] = {
 <li>On dissolution, remaining assets go to a tax-exempt Swiss institution with the same or a similar purpose.</li>
 </ul>
 <h2 id="record">Public record</h2>
-<p>Everything we publish and change is recorded in public, like code: <a href="https://github.com/gravit-open-network-foundation">github.com/gravit-open-network-foundation</a>.</p>
+<p>Everything we publish and change is recorded in public, like code: <a href="https://github.com/gon-foundation">github.com/gon-foundation</a>.</p>
 <ul>
 <li>Every change comes as a pull request, with its reason, and stays visible whether it is accepted or not.</li>
-<li>Nothing is rewritten. Mistakes are corrected by adding a correction (<a href="https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
+<li>Nothing is rewritten. Mistakes are corrected by adding a correction (<a href="https://github.com/gon-foundation/gravitnet/blob/main/specs/history-keeper.md">History Keeper</a>).</li>
 <li>Candidates for future protocols and infrastructures are proposed the same way, with test cases.</li>
 </ul>
 <p>The aim goes back to 2015 and Decipial, a set of decentralised principles. Methods and technologies have changed, the aim has not: to make information, including protected information, accessible to every person and to guard it. "Human dignity shall be inviolable." (German Basic Law, Article 1).</p>
@@ -841,8 +841,8 @@ by writing to the address above.</p>"""},
 }
 
 # ── principle (home page, under the intro) ───────────────────────────────
-GROVER = "https://github.com/gravit-open-network-foundation/gravit-grover"
-HISTORY_KEEPER = "https://github.com/gravit-open-network-foundation/gravitnet/blob/main/specs/history-keeper.md"
+GROVER = "https://github.com/gon-foundation/gravit-grover"
+HISTORY_KEEPER = "https://github.com/gon-foundation/gravitnet/blob/main/specs/history-keeper.md"
 PRINCIPLE = {
     "de": {
         "title": "Verifikation",
